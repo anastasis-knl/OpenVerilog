@@ -1,0 +1,37 @@
+
+ /* CSS */
+#selection_button{
+   background-color: #fff;
+   border-radius: 8px;
+   -fx-border-width: 1px;
+   -fx-border-style: solid;
+   -fx-border-color: d5d9d9;
+   box-sizing: border-box;
+   color: #0f1111;
+   cursor: pointer;
+   display: inline-block;
+   font-family: "Amazon Ember",sans-serif;
+   font-size: 13px;
+   line-height: 29px;
+   padding: 0 10px 0 11px;
+   position: relative;
+   text-align: center;
+   text-decoration: none;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+   vertical-align: middle;
+   width: 240px;
+ }
+
+
+#selection_button:hover {
+   background-color: #f7fafa;
+ }
+
+
+#selection_button:focus {
+   border-color: #008296;
+   box-shadow: rgba(213, 217, 217, .5) 0 2px 5px 0;
+   outline: 0;
+ }

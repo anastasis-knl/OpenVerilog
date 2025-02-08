@@ -1,17 +1,14 @@
 package org.example.verilog_compiler;
 
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.verilog_compiler.EditorScene.Editor_Scene;
-import org.example.verilog_compiler.SelectorScene.Selector_Scene;
 import javafx.scene.Parent;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Objects;
 
 public  class SceneSelector {
     static Stage primary_stage ;

@@ -76,7 +76,7 @@ public class ControllerClass_Selector_main {
         // CREATE THE NEW STAGE
 
         // ask for name of new directory on new stage
-        askProjectname_Stage = new Stage() ;
+        askProjectname_Stage = new Stage();
 
         //load from the fxml filei
         File fxmlFilemain = new File("src/main/java/org/example/verilog_compiler/SelectorScene/newDirectoryName.fxml");
@@ -84,26 +84,24 @@ public class ControllerClass_Selector_main {
         Parent selector = FXMLLoader.load(fxmlUrlmain);
 
         //create scene for the ask stage
-        Scene ask_Scene = new Scene(selector) ;
+        Scene ask_Scene = new Scene(selector);
         askProjectname_Stage.setScene(ask_Scene);
-        askProjectname_Stage.show() ;
+        askProjectname_Stage.show();
     }
 
 
-
-
-    public void SubmitNewNamePressed(ActionEvent event){
+    public void SubmitNewNamePressed(ActionEvent event) {
         // get name from textfield
-        String dir = GetNewName.getText() ;
+        String dir = GetNewName.getText();
 
         // create directory
-        selectedDirectory = new File(selectedDirectory.toString() + "/"+ dir) ;
-        if (!selectedDirectory.exists()){
+        selectedDirectory = new File(selectedDirectory.toString() + "/" + dir);
+        if (!selectedDirectory.exists()) {
             selectedDirectory.mkdirs();
         }
 
         // update button
-        dir = selectedDirectory.toString() ;
+        dir = selectedDirectory.toString();
         String substr = "..." + dir.substring(max(0, dir.length() - 22));
         ButtonNew.setText(substr);
 
@@ -112,10 +110,17 @@ public class ControllerClass_Selector_main {
 
     }
 
+
+    public void GoPressed(ActionEvent event) {
+        try {
+            SceneSelector.launch_Editor(selectedDirectory);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 }
-
-
-
 
 
 

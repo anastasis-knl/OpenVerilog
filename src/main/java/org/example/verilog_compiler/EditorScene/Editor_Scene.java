@@ -119,7 +119,7 @@ public class Editor_Scene extends Scene {
 
         List<String> command = new ArrayList<>();
         // Add the command and its arguments to the list
-        command.add("vvp");
+            command.add("vvp");
         command.add(wFile.getName());
         System.out.println(command.toString());
 

@@ -1,83 +1,83 @@
-#! /usr/bin/vvp
-:ivl_version "12.0 (stable)" "(v12_0-dirty)";
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
 :ivl_delay_selection "TYPICAL";
 :vpi_time_precision + 0;
-:vpi_module "/usr/lib/ivl/system.vpi";
-:vpi_module "/usr/lib/ivl/vhdl_sys.vpi";
-:vpi_module "/usr/lib/ivl/vhdl_textio.vpi";
-:vpi_module "/usr/lib/ivl/v2005_math.vpi";
-:vpi_module "/usr/lib/ivl/va_math.vpi";
-S_0x57c98ff39560 .scope module, "test" "test" 2 1;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001d9d7508170 .scope module, "test" "test" 2 1;
  .timescale 0 0;
-v0x57c98ff4d710_0 .var "clk", 0 0;
-v0x57c98ff4d7b0_0 .var "reset", 0 0;
-v0x57c98ff4d880_0 .net "value", 7 0, v0x57c98ff4d510_0;  1 drivers
-S_0x57c98ff38cc0 .scope module, "c1" "counter" 2 21, 3 1 0, S_0x57c98ff39560;
+v000001d9d765e3a0_0 .var "clk", 0 0;
+v000001d9d765e440_0 .var "reset", 0 0;
+v000001d9d765e4e0_0 .net "value", 7 0, v000001d9d7507ee0_0;  1 drivers
+S_000001d9d765e170 .scope module, "c1" "counter" 2 21, 3 1 0, S_000001d9d7508170;
  .timescale 0 0;
     .port_info 0 /OUTPUT 8 "out";
     .port_info 1 /INPUT 1 "clk";
     .port_info 2 /INPUT 1 "reset";
-P_0x57c98ff38e50 .param/l "WIDTH" 0 3 3, +C4<00000000000000000000000000001000>;
-v0x57c98ff38f60_0 .net "clk", 0 0, v0x57c98ff4d710_0;  1 drivers
-v0x57c98ff4d510_0 .var "out", 7 0;
-v0x57c98ff4d5f0_0 .net "reset", 0 0, v0x57c98ff4d7b0_0;  1 drivers
-E_0x57c98fefffa0 .event posedge, v0x57c98ff4d5f0_0, v0x57c98ff38f60_0;
-S_0x57c98ff396f0 .scope module, "tst" "tst" 4 1;
+P_000001d9d765a170 .param/l "WIDTH" 0 3 3, +C4<00000000000000000000000000001000>;
+v000001d9d765ade0_0 .net "clk", 0 0, v000001d9d765e3a0_0;  1 drivers
+v000001d9d7507ee0_0 .var "out", 7 0;
+v000001d9d765e300_0 .net "reset", 0 0, v000001d9d765e440_0;  1 drivers
+E_000001d9d7659bb0 .event posedge, v000001d9d765e300_0, v000001d9d765ade0_0;
+S_000001d9d7508300 .scope module, "tst" "tst" 4 1;
  .timescale 0 0;
     .port_info 0 /OUTPUT 1 "out";
-o0x7de5fa524138 .functor BUFZ 1, C4<z>; HiZ drive
-v0x57c98ff4d980_0 .net "out", 0 0, o0x7de5fa524138;  0 drivers
-    .scope S_0x57c98ff38cc0;
+o000001d9d75170d8 .functor BUFZ 1, C4<z>; HiZ drive
+v000001d9d74e24d0_0 .net "out", 0 0, o000001d9d75170d8;  0 drivers
+    .scope S_000001d9d765e170;
 T_0 ;
-    %wait E_0x57c98fefffa0;
-    %load/vec4 v0x57c98ff4d5f0_0;
+    %wait E_000001d9d7659bb0;
+    %load/vec4 v000001d9d765e300_0;
     %flag_set/vec4 8;
     %jmp/0xz  T_0.0, 8;
     %pushi/vec4 0, 0, 8;
-    %assign/vec4 v0x57c98ff4d510_0, 0;
+    %assign/vec4 v000001d9d7507ee0_0, 0;
     %jmp T_0.1;
 T_0.0 ;
-    %load/vec4 v0x57c98ff4d510_0;
+    %load/vec4 v000001d9d7507ee0_0;
     %addi 1, 0, 8;
-    %assign/vec4 v0x57c98ff4d510_0, 0;
+    %assign/vec4 v000001d9d7507ee0_0, 0;
 T_0.1 ;
     %jmp T_0;
     .thread T_0;
-    .scope S_0x57c98ff39560;
+    .scope S_000001d9d7508170;
 T_1 ;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x57c98ff4d7b0_0, 0, 1;
+    %store/vec4 v000001d9d765e440_0, 0, 1;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x57c98ff4d710_0, 0, 1;
+    %store/vec4 v000001d9d765e3a0_0, 0, 1;
     %end;
     .thread T_1;
-    .scope S_0x57c98ff39560;
+    .scope S_000001d9d7508170;
 T_2 ;
     %delay 17, 0;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v0x57c98ff4d7b0_0, 0, 1;
+    %store/vec4 v000001d9d765e440_0, 0, 1;
     %delay 11, 0;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x57c98ff4d7b0_0, 0, 1;
+    %store/vec4 v000001d9d765e440_0, 0, 1;
     %delay 29, 0;
     %pushi/vec4 1, 0, 1;
-    %store/vec4 v0x57c98ff4d7b0_0, 0, 1;
+    %store/vec4 v000001d9d765e440_0, 0, 1;
     %delay 11, 0;
     %pushi/vec4 0, 0, 1;
-    %store/vec4 v0x57c98ff4d7b0_0, 0, 1;
+    %store/vec4 v000001d9d765e440_0, 0, 1;
     %delay 100, 0;
     %vpi_call 2 13 "$stop" {0 0 0};
     %end;
     .thread T_2;
-    .scope S_0x57c98ff39560;
+    .scope S_000001d9d7508170;
 T_3 ;
     %delay 5, 0;
-    %load/vec4 v0x57c98ff4d710_0;
+    %load/vec4 v000001d9d765e3a0_0;
     %nor/r;
-    %store/vec4 v0x57c98ff4d710_0, 0, 1;
+    %store/vec4 v000001d9d765e3a0_0, 0, 1;
     %jmp T_3;
     .thread T_3;
-    .scope S_0x57c98ff39560;
+    .scope S_000001d9d7508170;
 T_4 ;
     %vpi_call 2 25 "$dumpfile", "dump.vcd" {0 0 0};
     %vpi_call 2 26 "$dumpvars" {0 0 0};
@@ -86,9 +86,9 @@ T_4 ;
     %vpi_call 2 29 "$finish" {0 0 0};
     %end;
     .thread T_4;
-    .scope S_0x57c98ff39560;
+    .scope S_000001d9d7508170;
 T_5 ;
-    %vpi_call 2 33 "$monitor", "At time %t, value = %h (%0d)", $time, v0x57c98ff4d880_0, v0x57c98ff4d880_0 {0 0 0};
+    %vpi_call 2 33 "$monitor", "At time %t, value = %h (%0d)", $time, v000001d9d765e4e0_0, v000001d9d765e4e0_0 {0 0 0};
     %end;
     .thread T_5;
 # The file index is used to find the file name in the following table.

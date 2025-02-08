@@ -9,14 +9,13 @@ public  class Start extends Application {
     public void start(Stage stage) throws Exception {
 
         Stage primary_stage = new Stage() ;
-        primary_stage.setTitle("Compiler  ");
+        primary_stage.setTitle("Compiler");
         SceneSelector controller = SceneSelector.get_controller() ;
         controller.setPrimaryStage(primary_stage);
         controller.launch_Selector();
 
     }
     public static void main(String[] args){
-        System.out.println("yes") ;
 
         launch(args) ;
     }

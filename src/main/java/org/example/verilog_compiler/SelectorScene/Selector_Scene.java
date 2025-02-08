@@ -33,12 +33,16 @@ public class Selector_Scene extends Scene {
     private Button neo ;
     private  Stage primary_stage;
     private VBox layout ;
+
+
     public Selector_Scene(Parent parent, Stage primary_stage) {
         super(parent,400,800);
         this.primary_stage = primary_stage;
         this.layout = (VBox)parent;
         prepare_scene();
     }
+
+    // for
     private void getdirname(){
         Stage stage = new Stage() ;
         TextField textField = new TextField();

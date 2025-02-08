@@ -1,13 +1,17 @@
 package org.example.verilog_compiler;
 
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.verilog_compiler.EditorScene.Editor_Scene;
 import org.example.verilog_compiler.SelectorScene.Selector_Scene;
-
+import javafx.scene.Parent;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.Objects;
 
 public  class SceneSelector {
     static Stage primary_stage ;
@@ -38,13 +42,19 @@ public  class SceneSelector {
 
 
     // at the beginning of the program to launch the folder/ project selection screen
-    void launch_Selector() {
+    void launch_Selector() throws IOException {
+
         if(Editor != null) {
             editor_shutdown_routine();
         }
         // create selection_scene
 
-        this.Selector = new Selector_Scene(new VBox(),primary_stage) ;
+        //Parent selector = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/SelectorScene/SelectionScene_main.fxml")));
+        File fxmlFilemain = new File("src/main/java/org/example/verilog_compiler/SelectorScene/SelectionScene_main.fxml");
+        URL fxmlUrlmain = fxmlFilemain.toURI().toURL();
+
+        Parent selector = FXMLLoader.load(fxmlUrlmain);
+        this.Selector = new Scene(selector) ;
         primary_stage.setScene(Selector);
         primary_stage.show() ;
 

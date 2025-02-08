@@ -6,26 +6,26 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="475.0" prefWidth="594.0" style="-fx-background-color: #2E0734;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.verilog_compiler.SelectorScene.ControllerClass_Selector_main">
+<AnchorPane prefHeight="716.0" prefWidth="954.0" style="-fx-background-color: #2E0734;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.verilog_compiler.SelectorScene.ControllerClass_Selector_main">
    <children>
       <Label text="Label" />
       <Label layoutX="220.0" layoutY="194.0" prefHeight="88.0" prefWidth="192.0" />
-      <Text fill="#fff3fb" layoutX="168.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose a Project">
+      <Text fill="#fff3fb" layoutX="348.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose a Project">
          <font>
             <Font name="System Italic" size="36.0" />
          </font>
       </Text>
-      <Button layoutX="206.0" layoutY="146.0" mnemonicParsing="false" style="-fx-background-color: #2E0734; -fx-border-color: #8A159B; -fx-border-radius: 20;" text="New Project" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="ButtonNew" layoutX="296.0" layoutY="238.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="364.0" style="-fx-background-color: #2E0734; -fx-border-color: #8A159B; -fx-border-radius: 20;" text="New Project" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="27.0" />
          </font>
       </Button>
-      <Button layoutX="187.0" layoutY="238.0" mnemonicParsing="false" onAction="#existingProjectPressed" style="-fx-background-color: #2E0734; -fx-border-color: #8A159B; -fx-border-radius: 20;" text="Existing project" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="ButtonExisting" layoutX="295.0" layoutY="342.0" mnemonicParsing="false" onAction="#existingProjectPressed" prefHeight="59.0" prefWidth="364.0" style="-fx-background-color: #2E0734; -fx-border-color: #8A159B; -fx-border-radius: 20;" text="Existing project" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="27.0" />
          </font>
       </Button>
-      <Button layoutX="255.0" layoutY="332.0" mnemonicParsing="false" onDragDetected="#back" style="-fx-background-color: #2E0734; -fx-border-color: #8A159B; -fx-border-radius: 20;" text="Go" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="ButtonGo" layoutX="437.0" layoutY="444.0" mnemonicParsing="false" style="-fx-background-color: #2E0734; -fx-border-color: #8A159B; -fx-border-radius: 20;" text="Go" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="30.0" />
          </font>

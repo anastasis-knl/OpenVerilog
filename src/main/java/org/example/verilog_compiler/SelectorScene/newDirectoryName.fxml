@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="121.0" prefWidth="543.0" style="-fx-background-color: #2E0734;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.verilog_compiler.SelectorScene.ControllerClass_Selector_main">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="14.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Name: " textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="25.0" />
+         </font>
+      </Text>
+      <TextField fx:id="GetNewName" layoutX="186.0" layoutY="35.0" prefHeight="36.0" prefWidth="239.0" promptText="NewProject" style="-fx-background-color: #2E0734; -fx-border-radius: 20; -fx-border-color: #8A159B;">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </TextField>
+      <Button fx:id="SubmitNewName" layoutX="425.0" layoutY="26.0" mnemonicParsing="false" onAction="#SubmitNewNamePressed" style="-fx-background-color: #2E0734;" text="Submit" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

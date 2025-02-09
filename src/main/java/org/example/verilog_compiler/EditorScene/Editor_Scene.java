@@ -36,6 +36,7 @@ public class Editor_Scene extends Scene {
     Vector<Button> buttons = new Vector<Button>() ;
     private Label terminal;
 
+
     void compile() throws IOException, InterruptedException {
         File[] files = dir.listFiles();
         // Traverse through the files array
@@ -56,6 +57,7 @@ public class Editor_Scene extends Scene {
 
     }
 
+    // save from .txt file that the console is saved to .v file
     void save(String filename) throws IOException {
         File v_file = new File(dir.getAbsolutePath() + "/" + filename +".v") ;
         File tmp = new File(dir.getAbsolutePath() + "/" + filename +".txt") ;
@@ -65,6 +67,8 @@ public class Editor_Scene extends Scene {
         fw.write(content);
         fw.close() ;
     }
+
+    // compile the program
     void run_command(Vector<String> files) throws IOException, InterruptedException {
         File rPath = new File("src/main/resources/compiled_files");
 
@@ -87,6 +91,8 @@ public class Editor_Scene extends Scene {
         update_console(process) ;
 
     }
+
+    // update console with the output of the ccompiler
     void update_console(Process process ) throws IOException, InterruptedException {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -111,6 +117,8 @@ public class Editor_Scene extends Scene {
 
     }
 
+
+    // run the comoppiled program
     void execute() throws IOException, InterruptedException {
         File rPath = new File("src/main/resources/compiled_files");
         File wFile = new File(rPath.getAbsolutePath() + "/endFile");
@@ -144,6 +152,119 @@ public class Editor_Scene extends Scene {
         Simulation_Scene ss = new Simulation_Scene() ;
     }
 
+    void create_dir(){
+        //create dir if not exist
+        if (!(dir.exists())) {
+            new File(dir.toString()).mkdirs();
+        }
+    } ;
+
+    // add files to explorer
+    private void add_existing_files() {
+        File[] files = dir.listFiles();
+
+        // Traverse through the files array
+        assert files != null;
+        for (File file : files) {
+            if (file.isDirectory() || !(file.toString().endsWith(".v"))) {
+                continue ;
+            } else {
+                topFile= file;
+                Button new_file = new Button(file.getName().substring(0,file.getName().length()-2));
+                new_file.setMinHeight(25);
+                buttons.add(new_file) ;
+                try {
+                    calibrate_fe_file(new_file);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+                explorer.getChildren().add(new_file) ;
+
+            }
+        }
+    }
+
+    // create new button if added by user a new file withing the file explorer
+    class File_create implements EventHandler<ActionEvent>{
+
+        @Override
+        public void handle(ActionEvent actionEvent) {
+            // ζηταμε ονομα και δημιουργια του αρχειου + να φαινεται σαν ονομα κουμπιου στο file explorer
+            TextField tf = new TextField() ;
+            explorer.getChildren().add(tf) ;
+            tf.setOnKeyPressed(new EventHandler<KeyEvent>() {
+                @Override
+                public void handle(KeyEvent keyEvent) {
+                    if (keyEvent.getCode() == KeyCode.ENTER) {
+                        String s = tf.getText();
+                        Button new_file = new Button(s);
+                        new_file.setMinHeight(25);
+                        buttons.add(new_file) ;
+                        try {
+                            calibrate_fe_file(new_file);
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                        explorer.getChildren().add(new_file) ;
+                        explorer.getChildren().remove(tf) ;
+
+                    }
+                }
+            });
+        }
+    }
+
+
+    // used to change the button layout and borders inside the file explorer
+    void calibrate_fe_file(Button b ) throws IOException {
+        b.setMinWidth(explorer_width);
+        // create file
+        File fl = new File(dir.toString()+"/"+b.getText()+".v");
+        if (!(fl.exists())){
+            fl.createNewFile();
+        }
+        File file = new File(dir.toString()+"/"+b.getText()+".txt");
+        if (!(file.exists())) {
+            try {
+                file.createNewFile() ;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        FileWriter fw = new FileWriter(file);
+        fw.write(get_file_content(new File(dir.toString()+"/"+b.getText()+".v")));
+        topFile = file ;
+        fw.close( ) ;
+
+
+        // on press
+        b.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+
+                File file = new File(dir.toString()+"/"+b.getText()+".txt");
+
+                try {
+                    // save to tmp file the progress
+                    if(!(topFile == null)) {
+                        save_to_tmp(tEditor.getText()) ;
+                    }
+                    // put to string file text
+                    topFile = file ;
+                    tEditor.clear();
+                    tEditor.setText(get_file_content(file));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+        });
+
+    }
+
+
+
+    // Create main stage scene , buttons and comnpile / run things
     public Editor_Scene(Parent parent,Stage primary_stage,  File directory ) throws IOException {
         super(parent);
         this.dir = directory ;
@@ -221,6 +342,7 @@ public class Editor_Scene extends Scene {
         this.tlayout.setMinHeight(primary_stage.getHeight()/2-25);
         create_terminal() ;
     }
+   // create Label that is the terminal
     void create_terminal(){
         Label terminal = new Label() ;
         terminal.setMaxWidth(Double.MAX_VALUE);
@@ -230,12 +352,8 @@ public class Editor_Scene extends Scene {
         terminal.setStyle("-fx-background-color:#222222;");
         terminal.setTextFill(Color.color(1, 1, 1));
     }
-    void create_dir(){
-        //create dir if not exist
-         if (!(dir.exists())) {
-             new File(dir.toString()).mkdirs();
-         }
-    } ;
+
+    // create the explorer
     void create_master() throws IOException {
         // toolbar left
         VBox left_tool = new VBox() ;
@@ -272,6 +390,7 @@ public class Editor_Scene extends Scene {
 
     }
 
+    // create button for expand file explorer functionality
     private Button getButton() {
         Button expand_fe = new Button() ;
         expand_fe.setMinWidth(explorer_width);
@@ -307,6 +426,8 @@ public class Editor_Scene extends Scene {
 
         return expand_fe;
     };
+
+    // button for create xplorer
     private void create_explorer( ){
         HBox top = new HBox() ;
         top.setMinHeight(25);
@@ -322,109 +443,18 @@ public class Editor_Scene extends Scene {
 
     }
 
-    private void add_existing_files() {
-        File[] files = dir.listFiles();
-
-        // Traverse through the files array
-        assert files != null;
-        for (File file : files) {
-            if (file.isDirectory() || !(file.toString().endsWith(".v"))) {
-                continue ;
-            } else {
-                topFile= file;
-                Button new_file = new Button(file.getName().substring(0,file.getName().length()-2));
-                new_file.setMinHeight(25);
-                buttons.add(new_file) ;
-                try {
-                    calibrate_fe_file(new_file);
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                explorer.getChildren().add(new_file) ;
-
-            }
-        }
-    }
-
-    class File_create implements EventHandler<ActionEvent>{
-
-        @Override
-        public void handle(ActionEvent actionEvent) {
-            // ζηταμε ονομα και δημιουργια του αρχειου + να φαινεται σαν ονομα κουμπιου στο file explorer
-            TextField tf = new TextField() ;
-            explorer.getChildren().add(tf) ;
-            tf.setOnKeyPressed(new EventHandler<KeyEvent>() {
-                @Override
-                public void handle(KeyEvent keyEvent) {
-                    if (keyEvent.getCode() == KeyCode.ENTER) {
-                        String s = tf.getText();
-                        Button new_file = new Button(s);
-                        new_file.setMinHeight(25);
-                        buttons.add(new_file) ;
-                        try {
-                            calibrate_fe_file(new_file);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                        explorer.getChildren().add(new_file) ;
-                        explorer.getChildren().remove(tf) ;
-
-                    }
-                }
-            });
-        }
-    }
-
-    void calibrate_fe_file(Button b ) throws IOException {
-        b.setMinWidth(explorer_width);
-        // create file
-        File fl = new File(dir.toString()+"/"+b.getText()+".v");
-        if (!(fl.exists())){
-            fl.createNewFile();
-        }
-        File file = new File(dir.toString()+"/"+b.getText()+".txt");
-        if (!(file.exists())) {
-            try {
-                file.createNewFile() ;
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        FileWriter fw = new FileWriter(file);
-        fw.write(get_file_content(new File(dir.toString()+"/"+b.getText()+".v")));
-        topFile = file ;
-        fw.close( ) ;
 
 
-        // on press
-        b.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
 
-                File file = new File(dir.toString()+"/"+b.getText()+".txt");
 
-                try {
-                    // save to tmp file the progress
-                    if(!(topFile == null)) {
-                        save_to_tmp(tEditor.getText()) ;
-                    }
-                    // put to string file text
-                    topFile = file ;
-                    tEditor.clear();
-                    tEditor.setText(get_file_content(file));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
 
-            }
-        });
 
-    }
     void save_to_tmp(String content ) throws IOException {
         FileWriter fw = new FileWriter(topFile) ;
         fw.write(content);
         fw.close();
     }
+
     String get_file_content(File file) throws IOException {
         StringBuilder stringBuilder = new StringBuilder();
 

@@ -39,6 +39,7 @@ public  class SceneSelector {
 
 
     // at the beginning of the program to launch the folder/ project selection screen
+    // works ok at this moment i don't know if it works on already running editor check
     void launch_Selector() throws IOException {
 
         if(Editor != null) {

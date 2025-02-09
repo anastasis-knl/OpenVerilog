@@ -43,7 +43,7 @@ public class fileExplorerTreeNode {
         this.name = name ;
         this.level = level ;
         this.isDir = isDir ;
-        this.hidden = true ;
+        this.hidden = false ;
         this.file = file ;
         this.editorTabs = editorTabs ;
         this.FE = fileExplorer ;
@@ -72,6 +72,7 @@ public class fileExplorerTreeNode {
                     }
 
                 }else {
+
                     try {
                         open_file_to_text_editor() ;
                     } catch (IOException e) {
@@ -91,6 +92,7 @@ public class fileExplorerTreeNode {
         if (!(existingTab())) {
             // add new tab
 
+
             Tab tab = new Tab() ;
             tab.setText(this.name);
 
@@ -105,6 +107,8 @@ public class fileExplorerTreeNode {
             // this shit needs to be put on a seperate data stream in order to be accessed while onteh fly
             TabController controller = loader.getController();
 
+
+            SceneSelector.get_controller().getEditor().getOpenTabs().put(this.file.getRelative_path(),tab);
             // You can now access the controller's methods if needed.
 
             // Add the tab to the TabPane on the editor
@@ -137,7 +141,7 @@ public class fileExplorerTreeNode {
         for (fileExplorerTreeNode child : children) {
             child.show();
         }
-
+        this.hidden = false ;
     }
 
     // hide all children of a directory
@@ -146,11 +150,15 @@ public class fileExplorerTreeNode {
         for (fileExplorerTreeNode child : children) {
             child.hide();
         }
+        this.hidden = true  ;
 
     }
 
     protected void show() {
+        this.hidden = false ;
         this.button.setVisible(true);
+        this.button.setManaged(true);
+        this.FE.requestLayout();
     }
 
     protected void hide() {
@@ -161,6 +169,8 @@ public class fileExplorerTreeNode {
         }
         // hide itself
         this.button.setVisible(false);
+        this.hidden = true ;
+        this.button.setManaged(false );
 
     }
 

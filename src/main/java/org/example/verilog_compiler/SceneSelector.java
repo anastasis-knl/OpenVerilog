@@ -100,6 +100,7 @@ public  class SceneSelector {
         ControllerClass_Editor_main controller = loader.getController();
 
         this.Editor = new Scene(editor) ;
+        this.editor_controller = controller ;
 
         // here go initialization commands for the editor
 

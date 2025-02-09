@@ -29,20 +29,31 @@ public class scene_tools {
         // create root children buttons
     }
 
-    private static void dfs_twoTrees(directoryTreeNode root , fileExplorerTreeNode rootFE){
+    private static void dfs_twoTrees(directoryTreeNode root , fileExplorerTreeNode rootFE) {
 
         for (directoryTreeNode child : root.getChildNodes()) {
             // create the child node
             fileExplorerTreeNode childFE = new fileExplorerTreeNode(child.getName(),
-                    rootFE.getLevel()+1 , rootFE.getFE()  , root.getRelative_path().isDirectory() ,
-                    root , rootFE.getEditorTabs())  ;
+                    rootFE.getLevel() + 6, rootFE.getFE(), root.getRelative_path().isDirectory(),
+                    root, rootFE.getEditorTabs());
 
             // dfs on the child of hte node
-            dfs_twoTrees(child , childFE) ;
+            dfs_twoTrees(child, childFE);
+            rootFE.add_child(childFE);
+
+        }
+
+        for(File file : root.getFiles()) {
+            fileExplorerTreeNode childFE = new fileExplorerTreeNode(file.getName(),
+                    rootFE.getLevel() + 3, rootFE.getFE(), false,
+                    root, rootFE.getEditorTabs());
+            rootFE.add_child(childFE);
+
         }
     }
 
 
+    // working now
     private static void navigateDir(File dirPath , directoryTreeNode currentDir ){
 
 

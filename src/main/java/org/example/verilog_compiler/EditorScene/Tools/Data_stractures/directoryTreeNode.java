@@ -30,9 +30,12 @@ public class directoryTreeNode {
         return childNodes;
 
     }
-
+    public List<File> getFiles(){
+        return this.files ;
+    }
     public void addFile(String fileName ){
         File file = new File(relative_path,fileName);
+        this.files.add(file) ;
     }
 
     public String getName(){return this.name; } ;

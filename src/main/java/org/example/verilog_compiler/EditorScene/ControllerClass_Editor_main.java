@@ -1,7 +1,6 @@
 package org.example.verilog_compiler.EditorScene;
 
 import java.io.*;
-import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.List;
 
@@ -31,7 +30,7 @@ public class ControllerClass_Editor_main {
     VBox FileExplorer;
 
     // file , tabname
-    private static HashMap<File, Tab> openTabs;
+    private static HashMap<File, Tab> openTabs = new HashMap<>();
 
     File rootDir ;
     SceneSelector globalSceneController ;
@@ -47,7 +46,7 @@ public class ControllerClass_Editor_main {
         directoryTreeNode root = scene_tools.getDirectoryTree(this.rootDir) ;
         fileExplorerTreeNode rootFE = new fileExplorerTreeNode(root.getName(),0 , FileExplorer , true , root , editorTabs)  ;
         scene_tools.createFileExplorer(root , rootFE);
-
+        //rootFE.hide_children();
         return ;
     }
     public HashMap<File,Tab> getOpenTabs(){return openTabs; } ;

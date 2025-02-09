@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
@@ -17,10 +18,12 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class fileExplorerTreeNode {
 
+    private VBox FE;
     // every file or directory under this directory button
     List<fileExplorerTreeNode> children;
 
@@ -43,6 +46,8 @@ public class fileExplorerTreeNode {
         this.hidden = true ;
         this.file = file ;
         this.editorTabs = editorTabs ;
+        this.FE = fileExplorer ;
+        this.children = new LinkedList<>() ;
 
         button = new Button() ;
 
@@ -89,15 +94,17 @@ public class fileExplorerTreeNode {
             Tab tab = new Tab() ;
             tab.setText(this.name);
 
-            File tabfile = new File("src/main/resources/fxmlGraphics/tabConfiguration.fxml") ;
+            File tabfileContent = new File("src/main/resources/fxmlGraphics/tabConfiguration.fxml") ;
 
-            FXMLLoader loader = new FXMLLoader(tabfile.toURL());
+            FXMLLoader loader = new FXMLLoader(tabfileContent.toURL());
 
             Region tabContent = loader.load();  // Load the content from FXML
             tab.setContent(tabContent);
 
             // Optionally, you can get the controller and modify it
+            // this shit needs to be put on a seperate data stream in order to be accessed while onteh fly
             TabController controller = loader.getController();
+
             // You can now access the controller's methods if needed.
 
             // Add the tab to the TabPane on the editor
@@ -121,6 +128,9 @@ public class fileExplorerTreeNode {
 
     }
 
+    public void add_child(fileExplorerTreeNode child ){
+        this.children.add(child) ;
+    }
 
     // show every child
     private void show_children(){
@@ -155,10 +165,13 @@ public class fileExplorerTreeNode {
     }
 
 
+    public VBox getFE(){ return this.FE;};
 
+    public TabPane getEditorTabs() {
+        return editorTabs;
+    }
 
-
-
+    public int getLevel(){return this.level ; } ;
 }
 
 

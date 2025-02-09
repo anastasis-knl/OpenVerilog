@@ -8,6 +8,8 @@ import java.util.List;
 import javafx.fxml.FXML;
 import javafx.scene.control.* ;
 import javafx.scene.layout.VBox;
+import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.directoryTreeNode;
+import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.fileExplorerTreeNode;
 import org.example.verilog_compiler.SceneSelector ;
 
 public class ControllerClass_Editor_main {
@@ -41,9 +43,10 @@ public class ControllerClass_Editor_main {
     }
 
     private void init_fileExplorer(){
-        // add buttons on the vbox with correct indentation
-        // based on the file tree create the file explorer tree and hang into the vbox of the file explorer
-
+        // get the file root folder from the root dir
+        directoryTreeNode root = scene_tools.getDirectoryTree(this.rootDir) ;
+        fileExplorerTreeNode rootFE = new fileExplorerTreeNode(root.getName(),0 , FileExplorer , true , root , editorTabs)  ;
+        scene_tools.createFileExplorer(root , rootFE);
 
         return ;
     }

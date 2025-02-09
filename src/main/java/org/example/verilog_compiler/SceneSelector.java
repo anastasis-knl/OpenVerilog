@@ -2,10 +2,8 @@ package org.example.verilog_compiler;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main;
-import org.example.verilog_compiler.EditorScene.Editor_Scene;
 import javafx.scene.Parent;
 import org.example.verilog_compiler.SelectorScene.ControllerClass_Selector_main;
 

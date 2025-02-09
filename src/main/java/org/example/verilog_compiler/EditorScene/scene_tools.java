@@ -1,13 +1,14 @@
 package org.example.verilog_compiler.EditorScene;
 
 import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.directoryTreeNode;
+import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.fileExplorerTreeNode;
 
 import javax.swing.tree.TreeNode;
 import java.io.File;
 
 public class scene_tools {
 
-    public directoryTreeNode getDirectoryTree(File dirPath){
+    public static directoryTreeNode getDirectoryTree(File dirPath){
 
         // dir path -> absolute path to directory
         directoryTreeNode root = new directoryTreeNode(dirPath, dirPath.getName()) ;
@@ -20,7 +21,29 @@ public class scene_tools {
 
 }
 
-    private void navigateDir(File dirPath , directoryTreeNode curerntDir ){
+    public static void createFileExplorer(directoryTreeNode root , fileExplorerTreeNode rootFE){
+        // create root button bfs on dfs on root and create the rootFE one node left one node right
+
+        // the two roots are ready
+        dfs_twoTrees(root , rootFE );
+        // create root children buttons
+    }
+
+    private static void dfs_twoTrees(directoryTreeNode root , fileExplorerTreeNode rootFE){
+
+        for (directoryTreeNode child : root.getChildNodes()) {
+            // create the child node
+            fileExplorerTreeNode childFE = new fileExplorerTreeNode(child.getName(),
+                    rootFE.getLevel()+1 , rootFE.getFE()  , root.getRelative_path().isDirectory() ,
+                    root , rootFE.getEditorTabs())  ;
+
+            // dfs on the child of hte node
+            dfs_twoTrees(child , childFE) ;
+        }
+    }
+
+
+    private static void navigateDir(File dirPath , directoryTreeNode currentDir ){
 
 
         if (dirPath.isDirectory()) {
@@ -39,14 +62,14 @@ public class scene_tools {
 
                         // create new node for the tree
                         directoryTreeNode child = new directoryTreeNode(newDirectoryPath , file.getName()) ;
-                        curerntDir.addChild(child);
+                        currentDir.addChild(child);
 
                         // recursively navigate depth first directory
-                        navigateDir(newDirectoryPath, curerntDir);
+                        navigateDir(newDirectoryPath, child);
 
                     // handle files
-                    } else if (file.isFile()) {
-                        curerntDir.addFile(file.getName());
+                    } else  {
+                        currentDir.addFile(file.getName());
                     }
                 }
             }
@@ -54,6 +77,8 @@ public class scene_tools {
         System.out.println(dirPath.getName() + " is not a valid directory.");
     }
 }
+
+
 
 };
 

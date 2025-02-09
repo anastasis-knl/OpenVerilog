@@ -6,14 +6,16 @@ import java.util.List;
 public class directoryTreeNode {
 
     private File relative_path;
-    private String dirName;
+    private String name;
     private List<directoryTreeNode> childNodes;
     private List<File> files;
 
+
     public directoryTreeNode(File relative_path, String name) {
         this.relative_path = relative_path;
-        this.dirName = name;
+        this.name = name;
         this.childNodes = new LinkedList<>();
+        this.files = new LinkedList<>() ;
     }
 
     public void addChild(directoryTreeNode childNode) {
@@ -32,5 +34,7 @@ public class directoryTreeNode {
     public void addFile(String fileName ){
         File file = new File(relative_path,fileName);
     }
+
+    public String getName(){return this.name; } ;
 
 }

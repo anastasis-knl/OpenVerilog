@@ -1,3 +1,4 @@
+/*
 package org.example.verilog_compiler.EditorScene;
 
 import javafx.event.ActionEvent;
@@ -469,6 +470,6 @@ public class Editor_Scene extends Scene {
 
     }
 
-
+*/
 
 

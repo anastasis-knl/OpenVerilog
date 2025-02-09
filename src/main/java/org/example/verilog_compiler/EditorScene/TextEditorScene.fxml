@@ -55,9 +55,9 @@
                         </Tab>
                     </tabs>
                   </TabPane>
-              <AnchorPane fx:id="console" minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="1537.0" style="-fx-background-color: #2B2D30; -fx-border-width: 5; -fx-pref-height: 400;">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="1537.0" style="-fx-background-color: #2B2D30; -fx-border-width: 5; -fx-pref-height: 400;">
                      <children>
-                        <TextFlow layoutX="7.0" layoutY="-1.0" prefHeight="200.0" prefWidth="1340.0" style="-fx-pref-height: 300;" />
+                        <TextArea fx:id="console" prefHeight="298.0" prefWidth="1516.0" />
                      </children></AnchorPane>
                </children>
             </VBox>

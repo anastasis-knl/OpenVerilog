@@ -1,15 +1,15 @@
-package org.example.verilog_compiler.EditorScene.commands;
+package org.example.verilog_compiler.EditorScene.Simulator.commands;
 
-public class Cversion implements commandType{
+public class Cdump implements commandType{
     String data ;
     @Override
     public int getType() {
-        return 9;
+        return 2;
     }
 
     @Override
     public String getData() {
-        return this.data;
+        return data;
     }
 
     @Override

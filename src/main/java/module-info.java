@@ -1,6 +1,7 @@
 module org.example.verilog_compiler {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens org.example.verilog_compiler to javafx.fxml;

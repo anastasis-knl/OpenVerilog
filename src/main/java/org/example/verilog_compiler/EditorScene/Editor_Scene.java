@@ -1,9 +1,7 @@
 package org.example.verilog_compiler.EditorScene;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -14,8 +12,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import org.example.verilog_compiler.EditorScene.Simulator.Simulation_Scene;
+
 import java.io.*;
-import java.net.URL;
 import java.util.Vector;
 import java.util.ArrayList;
 import java.util.List;

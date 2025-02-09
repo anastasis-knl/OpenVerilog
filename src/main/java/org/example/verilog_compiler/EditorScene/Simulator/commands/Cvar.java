@@ -1,10 +1,10 @@
-package org.example.verilog_compiler.EditorScene.commands;
+package org.example.verilog_compiler.EditorScene.Simulator.commands;
 
-public class Cscope implements commandType{
+public class Cvar implements commandType{
     String data ;
     @Override
     public int getType() {
-        return 5;
+        return 8;
     }
 
     @Override
@@ -14,6 +14,6 @@ public class Cscope implements commandType{
 
     @Override
     public void setData(String data) {
-        this.data = data;
+        this.data = data ;
     }
 }

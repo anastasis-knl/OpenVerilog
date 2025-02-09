@@ -1,19 +1,17 @@
-package org.example.verilog_compiler.EditorScene;
+package org.example.verilog_compiler.EditorScene.Simulator;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.example.verilog_compiler.EditorScene.commands.*;
+import org.example.verilog_compiler.EditorScene.Simulator.commands.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Stack;

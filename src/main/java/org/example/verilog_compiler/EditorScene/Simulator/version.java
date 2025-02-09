@@ -1,6 +1,6 @@
-package org.example.verilog_compiler.EditorScene;
+package org.example.verilog_compiler.EditorScene.Simulator;
 
-import org.example.verilog_compiler.EditorScene.commands.commandType;
+import org.example.verilog_compiler.EditorScene.Simulator.commands.commandType;
 
 public class version implements commandType {
     String data;

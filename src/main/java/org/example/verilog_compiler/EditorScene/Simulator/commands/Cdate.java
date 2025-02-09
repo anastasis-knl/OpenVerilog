@@ -1,4 +1,4 @@
-package org.example.verilog_compiler.EditorScene.commands;
+package org.example.verilog_compiler.EditorScene.Simulator.commands;
 
 public class Cdate implements commandType {
     String data;

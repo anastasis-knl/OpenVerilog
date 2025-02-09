@@ -49,6 +49,7 @@ public class ControllerClass_Selector_main {
         global_scene_controller = SceneSelector.get_controller();
     }
 
+    public File getProjectDirectory(){return this.selectedDirectory;} ;
 
     public void existingProjectPressed(ActionEvent event) {
         DirectoryChooser chooser = new DirectoryChooser();
@@ -113,7 +114,7 @@ public class ControllerClass_Selector_main {
 
     public void GoPressed(ActionEvent event) {
         try {
-            SceneSelector.launch_Editor(selectedDirectory);
+            global_scene_controller.launch_Editor(selectedDirectory);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

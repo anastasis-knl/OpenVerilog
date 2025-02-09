@@ -1,11 +1,9 @@
-package org.example.verilog_compiler.EditorScene;
+package org.example.verilog_compiler.EditorScene.Simulator;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.paint.Color;
 
-import java.util.HashMap;
 import java.util.Vector;
 
 public class ArrayG extends ScrollPane {

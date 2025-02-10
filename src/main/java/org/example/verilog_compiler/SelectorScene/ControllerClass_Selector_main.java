@@ -80,7 +80,7 @@ public class ControllerClass_Selector_main {
         askProjectname_Stage = new Stage();
 
         //load from the fxml filei
-        File fxmlFilemain = new File("src/main/java/org/example/verilog_compiler/SelectorScene/newDirectoryName.fxml");
+        File fxmlFilemain = new File("src/main/resources/fxmlGraphics/LoginScreen/newDirectoryName.fxml");
         URL fxmlUrlmain = fxmlFilemain.toURI().toURL();
         Parent selector = FXMLLoader.load(fxmlUrlmain);
 

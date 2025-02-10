@@ -3,7 +3,6 @@ package org.example.verilog_compiler.EditorScene;
 import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.directoryTreeNode;
 import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.fileExplorerTreeNode;
 
-import javax.swing.tree.TreeNode;
 import java.io.File;
 
 public class scene_tools {
@@ -34,7 +33,7 @@ public class scene_tools {
         for (directoryTreeNode child : root.getChildNodes()) {
             // create the child node
             fileExplorerTreeNode childFE = new fileExplorerTreeNode(child.getName(),
-                    rootFE.getLevel() + 6, rootFE.getFE(), root.getRelative_path().isDirectory(),
+                    rootFE.getLevel() + 6, rootFE.getFE(), root.getGetFileInstance().isDirectory(),
                     root, rootFE.getEditorTabs());
 
             // dfs on the child of hte node

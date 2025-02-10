@@ -59,7 +59,7 @@ public  class SceneSelector {
 
         //Parent selector = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/SelectorScene/SelectionScene_main.fxml")));
 
-        File fxmlFilemain = new File("src/main/java/org/example/verilog_compiler/SelectorScene/SelectionScene_main.fxml");
+        File fxmlFilemain = new File("src/main/resources/fxmlGraphics/LoginScreen/SelectionScene_main.fxml");
         URL fxmlUrlmain = fxmlFilemain.toURI().toURL();
 
         FXMLLoader login_loader = new FXMLLoader(fxmlUrlmain);
@@ -87,7 +87,7 @@ public  class SceneSelector {
         root_dir= this.login_controller.getProjectDirectory() ;
 
 
-        File fxmlFilemain = new File("src/main/java/org/example/verilog_compiler/EditorScene/TextEditorScene.fxml");
+        File fxmlFilemain = new File("src/main/resources/fxmlGraphics/TextEditorScene.fxml");
         URL fxmlUrlmain = fxmlFilemain.toURI().toURL();
 
         // get loader for fxml file

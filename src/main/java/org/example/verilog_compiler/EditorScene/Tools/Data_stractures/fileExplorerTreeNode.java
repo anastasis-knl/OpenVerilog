@@ -6,17 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
-import org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main;
 import org.example.verilog_compiler.EditorScene.TabController;
 import org.example.verilog_compiler.SceneSelector;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -108,7 +105,7 @@ public class fileExplorerTreeNode {
             TabController controller = loader.getController();
 
 
-            SceneSelector.get_controller().getEditor().getOpenTabs().put(this.file.getRelative_path(),tab);
+            SceneSelector.get_controller().getEditor().getOpenTabs().put(this.file.getGetFileInstance(),tab);
             // You can now access the controller's methods if needed.
 
             // Add the tab to the TabPane on the editor
@@ -122,9 +119,9 @@ public class fileExplorerTreeNode {
     // change if it already exists
     private Boolean existingTab() {
         HashMap<File , Tab> map = SceneSelector.get_controller().getEditor().getOpenTabs() ;
-        if (map.containsKey(this.file.getRelative_path())) {
+        if (map.containsKey(this.file.getGetFileInstance())) {
             // move active tab to this asked for tab
-            editorTabs.getSelectionModel().select(map.get(this.file.getRelative_path()));
+            editorTabs.getSelectionModel().select(map.get(this.file.getGetFileInstance()));
             return true;
         }
         // create tab if not existing

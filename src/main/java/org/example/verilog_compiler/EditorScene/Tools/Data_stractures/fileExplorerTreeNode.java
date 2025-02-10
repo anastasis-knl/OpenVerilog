@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main;
 
 public class fileExplorerTreeNode {
 
@@ -93,6 +94,7 @@ public class fileExplorerTreeNode {
             Tab tab = new Tab() ;
             tab.setText(this.name);
 
+            // style of the tabs
             File tabfileContent = new File("src/main/resources/fxmlGraphics/tabConfiguration.fxml") ;
 
             FXMLLoader loader = new FXMLLoader(tabfileContent.toURL());
@@ -103,11 +105,13 @@ public class fileExplorerTreeNode {
             // Optionally, you can get the controller and modify it
             // this shit needs to be put on a seperate data stream in order to be accessed while onteh fly
             TabController controller = loader.getController();
+            // add statically for global access later probably bad way but ok boomer
+            ControllerClass_Editor_main.addTabController(tab, controller);
 
-
-            SceneSelector.get_controller().getEditor().getOpenTabs().put(this.file.getGetFileInstance(),tab);
+            SceneSelector.get_controller().getEditor().getOpenTabs().put(this.file.getTempFileInstance(),tab);
             // You can now access the controller's methods if needed.
 
+            controller.write(this.file.getTempFileInstance());
             // Add the tab to the TabPane on the editor
             editorTabs.getTabs().add(tab);
 
@@ -118,16 +122,22 @@ public class fileExplorerTreeNode {
 
     // change if it already exists
     private Boolean existingTab() {
+
         HashMap<File , Tab> map = SceneSelector.get_controller().getEditor().getOpenTabs() ;
-        if (map.containsKey(this.file.getGetFileInstance())) {
+
+        if (map.containsKey(this.file.getTempFileInstance())) {
             // move active tab to this asked for tab
-            editorTabs.getSelectionModel().select(map.get(this.file.getGetFileInstance()));
+
+            editorTabs.getSelectionModel().select(map.get(this.file.getTempFileInstance()));
             return true;
         }
         // create tab if not existing
         return false ;
 
     }
+
+
+    // it works form here on
 
     public void add_child(fileExplorerTreeNode child ){
         this.children.add(child) ;
@@ -170,7 +180,6 @@ public class fileExplorerTreeNode {
         this.button.setManaged(false );
 
     }
-
 
     public VBox getFE(){ return this.FE;};
 

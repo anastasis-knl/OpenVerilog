@@ -33,7 +33,7 @@ public  class Start extends Application {
                 deleteDirectoryContents(tempDirectory);
             }
 
-
+            // needs cleaner update in the future works for now
             public static void deleteDirectoryContents(File directory) {
                 // Check if the directory exists and is indeed a directory
                 if (directory.exists() && directory.isDirectory()) {

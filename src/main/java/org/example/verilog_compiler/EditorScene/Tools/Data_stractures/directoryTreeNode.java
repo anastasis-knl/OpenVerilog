@@ -1,8 +1,9 @@
 package org.example.verilog_compiler.EditorScene.Tools.Data_stractures;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
 import java.util.LinkedList;
 import java.util.List;
+import java.nio.file.StandardCopyOption;
 
 public class directoryTreeNode {
 
@@ -14,17 +15,17 @@ public class directoryTreeNode {
     private List<directoryTreeNode> dirNodes;
     private List<directoryTreeNode> fileNodes;
     private File tempFile;
-
+    private boolean isDir  ;
+    
     public directoryTreeNode(File relative_path, String name) {
         this.getFileInstance = relative_path;
+        this.isDir = relative_path.isDirectory() ; 
         this.name = name;
 
         this.dirNodes = new LinkedList<>();
         this.fileNodes = new LinkedList<>() ;
 
         String tempFileName = "src/main/resources/tempFiles" ;
-        //tempFileName = tempFileName +
-        //this.tempFile = new File("")
 
     }
 
@@ -40,6 +41,7 @@ public class directoryTreeNode {
     public File getGetFileInstance() {
         return getFileInstance;
     }
+    public File getTempFileInstance(){return this.tempFile; } ;
 
     public List<directoryTreeNode> getDirNodes() {
         return dirNodes;
@@ -55,13 +57,13 @@ public class directoryTreeNode {
     // need to create either file directory inside the temporary directory
     // parent root dir will pass its own path and this function witl create the path for the temp file
 
-    public void setRelativePath(String path){
+    public void setRelativePath(String path) throws IOException {
         this.relativePath = path + "/" + this.name ;
         create_temp_file();
 
     }
 
-    public void create_temp_file(){
+    public void create_temp_file() throws IOException {
         if (this.getFileInstance.isDirectory()) {
             File directory = new File(this.relativePath) ;
             directory.mkdirs() ;
@@ -81,12 +83,64 @@ public class directoryTreeNode {
                 System.out.println("An error occurred.");
                 e.printStackTrace();
             }
-
+            
             this.tempFile = file  ;
+
+            if(isValidFile()) {
+                cpFileToTemp() ;
+            }else{
+                FileOutputStream fs = new FileOutputStream(this.tempFile) ;
+                fs.write("Invalid File Type".getBytes());
+
+            }
 
         }
     }
 
+    private Boolean isValidFile() {
+        if (this.name.endsWith(".v")
+                || this.name.endsWith(".vh")
+                || this.name.endsWith(".txt")
+                || this.name.endsWith("sv")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // based on the temporary file return the directory tree node connected to it
+    // dfs normal tree search
+    //return null or return node pointer
+    public static directoryTreeNode searchByTemp(directoryTreeNode root , File temp){
+        directoryTreeNode  answer = null ; 
+        if (root.isDir) {
+            for (directoryTreeNode dirNode : root.getDirNodes()) {
+                answer = searchByTemp(dirNode , temp);
+                if (answer != null) {
+                    return answer ; 
+                }
+            }
+
+            for (directoryTreeNode fileNode : root.getFileNodes()) {
+                if (temp == fileNode.getTempFileInstance()){
+                    return fileNode ;
+                }
+            }
+        }else{
+            if (temp == root.getTempFileInstance()) {
+                return root;
+            }
+        }
+        return null ;
+    }
+
+    private void cpFileToTemp() {
+        try {
+            Files.copy(this.getFileInstance.toPath(), this.tempFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public String getRelativeTempPath(){
         return this.relativePath ;
     }

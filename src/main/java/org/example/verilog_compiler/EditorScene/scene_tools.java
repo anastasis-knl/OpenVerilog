@@ -4,10 +4,11 @@ import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.directoryT
 import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.fileExplorerTreeNode;
 
 import java.io.File;
+import java.io.IOException;
 
 public class scene_tools {
 
-    public static directoryTreeNode getDirectoryTree(File dirPath){
+    public static directoryTreeNode getDirectoryTree(File dirPath) throws IOException {
 
         // dir path -> absolute path to directory
         directoryTreeNode root = new directoryTreeNode(dirPath, dirPath.getName()) ;
@@ -38,7 +39,7 @@ public class scene_tools {
             // create the child node
             fileExplorerTreeNode childFE = new fileExplorerTreeNode(child.getName(),
                     rootFE.getLevel() + 6, rootFE.getFE(), root.getGetFileInstance().isDirectory(),
-                    root, rootFE.getEditorTabs());
+                    child, rootFE.getEditorTabs());
 
             // dfs on the child of hte node
             dfs_twoTrees(child, childFE);
@@ -49,7 +50,7 @@ public class scene_tools {
         for(directoryTreeNode file : root.getFileNodes()) {
             fileExplorerTreeNode childFE = new fileExplorerTreeNode(file.getName(),
                     rootFE.getLevel() + 3, rootFE.getFE(), false,
-                    root, rootFE.getEditorTabs());
+                    file, rootFE.getEditorTabs());
 
             rootFE.add_child(childFE);
 
@@ -58,7 +59,7 @@ public class scene_tools {
 
 
     // working now
-    private static void navigateDir(File dirPath , directoryTreeNode currentDir ){
+    private static void navigateDir(File dirPath , directoryTreeNode currentDir ) throws IOException {
 
 
         if (dirPath.isDirectory()) {

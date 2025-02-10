@@ -12,6 +12,9 @@ public class scene_tools {
         // dir path -> absolute path to directory
         directoryTreeNode root = new directoryTreeNode(dirPath, dirPath.getName()) ;
 
+        // set up temp for root directory
+        root.setRelativePath("src/main/resources/tempFiles");
+
         // dir path is the path to parent directory
         navigateDir(dirPath,  root);
 
@@ -30,7 +33,8 @@ public class scene_tools {
 
     private static void dfs_twoTrees(directoryTreeNode root , fileExplorerTreeNode rootFE) {
 
-        for (directoryTreeNode child : root.getChildNodes()) {
+        for (directoryTreeNode child : root.getDirNodes()) {
+
             // create the child node
             fileExplorerTreeNode childFE = new fileExplorerTreeNode(child.getName(),
                     rootFE.getLevel() + 6, rootFE.getFE(), root.getGetFileInstance().isDirectory(),
@@ -42,10 +46,11 @@ public class scene_tools {
 
         }
 
-        for(File file : root.getFiles()) {
+        for(directoryTreeNode file : root.getFileNodes()) {
             fileExplorerTreeNode childFE = new fileExplorerTreeNode(file.getName(),
                     rootFE.getLevel() + 3, rootFE.getFE(), false,
                     root, rootFE.getEditorTabs());
+
             rootFE.add_child(childFE);
 
         }
@@ -72,14 +77,27 @@ public class scene_tools {
 
                         // create new node for the tree
                         directoryTreeNode child = new directoryTreeNode(newDirectoryPath , file.getName()) ;
-                        currentDir.addChild(child);
+                        currentDir.addDirNode(child);
+
+                        // set up temp file
+                        child.setRelativePath(currentDir.getRelativeTempPath());
 
                         // recursively navigate depth first directory
                         navigateDir(newDirectoryPath, child);
 
                     // handle files
                     } else  {
-                        currentDir.addFile(file.getName());
+
+                        File newFilePath = new File(dirPath, file.getName());
+
+                        // create new node for the tree
+                        directoryTreeNode child = new directoryTreeNode(newFilePath , file.getName()) ;
+                        currentDir.addFileNode(child);
+
+                        // set up temp file
+                        child.setRelativePath(currentDir.getRelativeTempPath());
+
+
                     }
                 }
             }

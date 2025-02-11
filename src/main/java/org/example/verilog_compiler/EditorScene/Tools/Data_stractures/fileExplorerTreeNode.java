@@ -50,9 +50,24 @@ public class fileExplorerTreeNode {
         button = new Button() ;
 
         // format text of the button
+        // for each dir
         String txt = " " ;
-        for (int i = 0 ; i < this.level ; i++) {
-            txt = txt + " ";
+        if (this.isDir){
+
+            for (int i = 0 ; i < this.level-4 ; i++) {
+                // proper indent for level
+                txt = txt + " ";
+            }
+            if (level!=0) {
+                txt += "|___";
+            }
+        }else{
+            // if not dir
+            for (int i = 0 ; i < this.level-2; i++) {
+                // proper indent for level
+                txt = txt + " ";
+            }
+            txt += "|_" ;
         }
         txt += this.name ;
         button.setText(txt);
@@ -105,6 +120,7 @@ public class fileExplorerTreeNode {
             // Optionally, you can get the controller and modify it
             // this shit needs to be put on a seperate data stream in order to be accessed while onteh fly
             TabController controller = loader.getController();
+
             // add statically for global access later probably bad way but ok boomer
             ControllerClass_Editor_main.addTabController(tab, controller);
 

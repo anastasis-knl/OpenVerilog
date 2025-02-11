@@ -1,0 +1,77 @@
+$date
+	Tue Feb 11 11:29:02 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module jtransmissiongatetb $end
+$var wire 1 ! y $end
+$var reg 1 " a $end
+$var reg 1 # control $end
+$scope module jtgate $end
+$var wire 1 " a $end
+$var wire 1 $ cbar $end
+$var wire 1 # control $end
+$var wire 1 ! y $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+1$
+0#
+0"
+z!
+$end
+#50
+0$
+0!
+1#
+#100
+z!
+1$
+0#
+#150
+0$
+0!
+1#
+#200
+z!
+1$
+0#
+#250
+0$
+0!
+1#
+#300
+1$
+0#
+z!
+1"
+#350
+0$
+1!
+1#
+#400
+z!
+1$
+0#
+#450
+0$
+1!
+1#
+#500
+z!
+1$
+0#
+#550
+0$
+1!
+1#
+#600

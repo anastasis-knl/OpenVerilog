@@ -25,7 +25,6 @@ public class directoryTreeNode {
         this.dirNodes = new LinkedList<>();
         this.fileNodes = new LinkedList<>() ;
 
-        String tempFileName = "src/main/resources/tempFiles" ;
 
     }
 
@@ -71,6 +70,7 @@ public class directoryTreeNode {
 
         }else{
             File file = new File(this.relativePath)  ;
+
             try {
                 // Create the file if it does not exist
                 if (file.createNewFile()) {
@@ -88,13 +88,26 @@ public class directoryTreeNode {
 
             if(isValidFile()) {
                 cpFileToTemp() ;
+
+                // add to file list
+                this.appendToList() ;
             }else{
                 FileOutputStream fs = new FileOutputStream(this.tempFile) ;
                 fs.write("Invalid File Type".getBytes());
 
             }
 
+
+
         }
+    }
+
+    private void appendToList() throws IOException {
+        String path = this.tempFile.getAbsolutePath();
+        FileOutputStream fs = new FileOutputStream("src/main/resources/bin/fileList.txt",true) ;
+        fs.write(path.getBytes()) ;
+        fs.write("\n".getBytes());
+
     }
 
     private Boolean isValidFile() {

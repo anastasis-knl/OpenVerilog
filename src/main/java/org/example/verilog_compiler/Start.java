@@ -38,6 +38,8 @@ public  class Start extends Application {
                 // Check if the directory exists and is indeed a directory
                 if (directory.exists() && directory.isDirectory()) {
                     // Get all files and subdirectories in the directory
+
+
                     File[] files = directory.listFiles();
 
                     if (files != null) {

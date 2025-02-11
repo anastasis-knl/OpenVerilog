@@ -38,7 +38,7 @@ public class scene_tools {
 
             // create the child node
             fileExplorerTreeNode childFE = new fileExplorerTreeNode(child.getName(),
-                    rootFE.getLevel() + 6, rootFE.getFE(), root.getGetFileInstance().isDirectory(),
+                    rootFE.getLevel() + 4, rootFE.getFE(), root.getGetFileInstance().isDirectory(),
                     child, rootFE.getEditorTabs());
 
             // dfs on the child of hte node
@@ -49,7 +49,7 @@ public class scene_tools {
 
         for(directoryTreeNode file : root.getFileNodes()) {
             fileExplorerTreeNode childFE = new fileExplorerTreeNode(file.getName(),
-                    rootFE.getLevel() + 3, rootFE.getFE(), false,
+                    rootFE.getLevel() + 2, rootFE.getFE(), false,
                     file, rootFE.getEditorTabs());
 
             rootFE.add_child(childFE);

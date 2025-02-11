@@ -32,6 +32,7 @@ TabController {
         while ((ln = reader.readLine()) != null) {
             // write on the text area
             textEditor.appendText(ln) ;
+            textEditor.appendText("\n") ;
 
         }
     }

@@ -67,7 +67,7 @@ public class Editor_Scene extends Scene {
         fw.write(content);
         fw.close() ;
     }
-
+========================================================
     // compile the program
     void run_command(Vector<String> files) throws IOException, InterruptedException {
         File rPath = new File("src/main/resources/compiled_files");
@@ -91,6 +91,9 @@ public class Editor_Scene extends Scene {
         update_console(process) ;
 
     }
+========================================================
+
+========================================================
 
     // update console with the output of the ccompiler
     void update_console(Process process ) throws IOException, InterruptedException {
@@ -117,6 +120,8 @@ public class Editor_Scene extends Scene {
 
     }
 
+========================================================
+========================================================
 
     // run the comoppiled program
     void execute() throws IOException, InterruptedException {
@@ -151,6 +156,7 @@ public class Editor_Scene extends Scene {
 
         Simulation_Scene ss = new Simulation_Scene() ;
     }
+========================================================
 
     void create_dir(){
         //create dir if not exist

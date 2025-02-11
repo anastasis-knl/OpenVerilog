@@ -4,6 +4,7 @@ import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.directoryT
 import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.fileExplorerTreeNode;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class scene_tools {
@@ -23,6 +24,14 @@ public class scene_tools {
     return root ;
 
 }
+    public static void clearFileListfile(){
+        File  flst = new File("src/main/resources/bin/fileList.txt");
+
+        try (FileOutputStream fos = new FileOutputStream(flst)) { // Opens in overwrite mode
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void createFileExplorer(directoryTreeNode root , fileExplorerTreeNode rootFE){
         // create root button bfs on dfs on root and create the rootFE one node left one node right

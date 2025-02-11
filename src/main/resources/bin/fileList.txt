@@ -1,2 +1,2 @@
-/home/flugel/personal/programs/git/OpenVerilog/src/main/resources/tempFiles/verilog/project1/trasmission.v
-/home/flugel/personal/programs/git/OpenVerilog/src/main/resources/tempFiles/verilog/project1/trasmissionTb.v
+/home/flugel/personal/programs/verilog/project1/trasmission.v
+/home/flugel/personal/programs/verilog/project1/trasmissionTb.v

@@ -79,6 +79,8 @@ public class ControllerClass_Editor_main {
     }
 
     private void init_fileExplorer() throws IOException {
+        // delete the conetnts of fileList.txt ;
+        scene_tools.clearFileListfile();
         // get the file root folder from the root dir
         directoryTreeNode root = scene_tools.getDirectoryTree(this.rootDir) ;
         fileExplorerTreeNode rootFE = new fileExplorerTreeNode(root.getName(),0 , FileExplorer , true , root , editorTabs)  ;
@@ -188,8 +190,9 @@ public class ControllerClass_Editor_main {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+
             // change the .v back to how it was, from the .temp file
-            //copyTempToFile(fileTemp , FileReal.getGetFileInstance()) ;
+            copyTempToFile(fileTemp , FileReal.getGetFileInstance()) ;
 
         }
     }

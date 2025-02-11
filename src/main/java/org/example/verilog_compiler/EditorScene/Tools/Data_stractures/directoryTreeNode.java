@@ -16,7 +16,7 @@ public class directoryTreeNode {
     private List<directoryTreeNode> fileNodes;
     private File tempFile;
     private boolean isDir  ;
-    
+
     public directoryTreeNode(File relative_path, String name) {
         this.getFileInstance = relative_path;
         this.isDir = relative_path.isDirectory() ; 
@@ -103,7 +103,9 @@ public class directoryTreeNode {
     }
 
     private void appendToList() throws IOException {
-        String path = this.tempFile.getAbsolutePath();
+
+        // run the real file and copy the temp to the real after changes are completed
+        String path = this.getFileInstance.getAbsolutePath();
         FileOutputStream fs = new FileOutputStream("src/main/resources/bin/fileList.txt",true) ;
         fs.write(path.getBytes()) ;
         fs.write("\n".getBytes());

@@ -82,12 +82,16 @@ public class Compile {
             // Ensure the file is not empty
             if (!lines.isEmpty()) {
                 // Remove the last line
+                while (lines.get(lines.size() - 1).trim().isEmpty()) {
+                    lines.remove(lines.size() - 1);
+                }
                 lines.remove(lines.size() - 1);
                 // Write the updated lines back to the file
                 Files.write(Paths.get(tb.toURI()), lines, StandardCharsets.UTF_8);
             } else {
                 System.out.println("File is empty. Nothing to remove.");
             }
+
             Files.write(Paths.get(tb.toURI()), writeLines, StandardCharsets.UTF_8, StandardOpenOption.APPEND);
 
 

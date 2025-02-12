@@ -10,7 +10,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 import org.example.verilog_compiler.EditorScene.TabController;
-import org.example.verilog_compiler.SceneSelector;
+import org.example.verilog_compiler.GlobalSceneController;
 
 import java.io.File;
 import java.io.IOException;
@@ -124,7 +124,7 @@ public class fileExplorerTreeNode {
             // add statically for global access later probably bad way but ok boomer
             ControllerClass_Editor_main.addTabController(tab, controller);
 
-            SceneSelector.get_controller().getEditor().getOpenTabs().put(this.file.getTempFileInstance(),tab);
+            GlobalSceneController.get_controller().getEditor().getOpenTabs().put(this.file.getTempFileInstance(),tab);
             // You can now access the controller's methods if needed.
 
             controller.write(this.file.getTempFileInstance());
@@ -139,7 +139,7 @@ public class fileExplorerTreeNode {
     // change if it already exists
     private Boolean existingTab() {
 
-        HashMap<File , Tab> map = SceneSelector.get_controller().getEditor().getOpenTabs() ;
+        HashMap<File , Tab> map = GlobalSceneController.get_controller().getEditor().getOpenTabs() ;
 
         if (map.containsKey(this.file.getTempFileInstance())) {
             // move active tab to this asked for tab

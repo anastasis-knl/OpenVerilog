@@ -1,4 +1,4 @@
-package org.example.verilog_compiler.EditorScene.Simulator;//package org.example.verilog_compiler.EditorScene;
+package org.example.verilog_compiler.WaveViewer.Simulator;//package org.example.verilog_compiler.EditorScene;
 //
 //import javafx.scene.canvas.Canvas;
 //import javafx.scene.canvas.GraphicsContext;
@@ -173,7 +173,7 @@ package org.example.verilog_compiler.EditorScene.Simulator;//package org.example
 //        }
 //        update(prev, time);
 //    }
-//}
+/*
 import javafx.scene.Group;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -244,3 +244,5 @@ public class Graph extends Group {
         update(prev, time);
     }
 }
+
+*/

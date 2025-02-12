@@ -12,7 +12,7 @@ public  class Start extends Application {
 
         Stage primary_stage = new Stage() ;
         primary_stage.setTitle("Compiler");
-        SceneSelector controller = SceneSelector.get_controller() ;
+        GlobalSceneController controller = GlobalSceneController.get_controller() ;
         controller.setPrimaryStage(primary_stage);
         controller.launch_Selector();
 

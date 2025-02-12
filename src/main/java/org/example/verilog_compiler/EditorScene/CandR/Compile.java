@@ -2,7 +2,7 @@ package org.example.verilog_compiler.EditorScene.CandR;
 
 import javafx.scene.control.TextArea;
 import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.directoryTreeNode;
-import org.example.verilog_compiler.SceneSelector;
+import org.example.verilog_compiler.GlobalSceneController;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -109,17 +109,11 @@ public class Compile {
         // set at what directory must the console open
         Process process = processBuilder.start();
 
-        try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(process.getOutputStream()))) {
-            writer.write("\n") ;
-            writer.write("finish"); // The input you want to provide
-            writer.newLine();
-            writer.flush();
-        }
-
-        process.waitFor(1, TimeUnit.SECONDS) ;
+       process.waitFor(1, TimeUnit.SECONDS) ;
 
         update_console(process) ;
 
+        GlobalSceneController.get_controller().launch_WaveViewer() ;
 
     }
 
@@ -128,7 +122,7 @@ public class Compile {
         BufferedReader readers = new BufferedReader(new InputStreamReader(process.getErrorStream()));
 
         // Global controller is responsible for linkage
-        TextArea console = SceneSelector.get_controller().getEditor().getConsole();
+        TextArea console = GlobalSceneController.get_controller().getEditor().getConsole();
 
         String lines =null;
         console.appendText("\n");

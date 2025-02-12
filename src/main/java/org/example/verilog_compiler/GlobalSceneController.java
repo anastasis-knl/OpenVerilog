@@ -6,13 +6,14 @@ import javafx.stage.Stage;
 import org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main;
 import javafx.scene.Parent;
 import org.example.verilog_compiler.SelectorScene.ControllerClass_Selector_main;
+import org.example.verilog_compiler.WaveViewer.waveViewerController;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
-public  class SceneSelector {
+public  class GlobalSceneController {
     static Stage primary_stage ;
 
     Scene Selector ;
@@ -24,14 +25,17 @@ public  class SceneSelector {
     File root_dir ;
 
     // static class global one instance of master scene selector
-    private static SceneSelector controller ;
-    private SceneSelector(){}  ;
+    private static GlobalSceneController controller ;
+    private Scene WaveViewer;
+    private org.example.verilog_compiler.WaveViewer.waveViewerController waveViewerController;
+
+    private GlobalSceneController(){}  ;
 
     //  Scene selector is a static class it is meant to be run in the background
     // get controller is done by any class in order to change screens
-    public static  SceneSelector get_controller(){
+    public static GlobalSceneController get_controller(){
         if (controller  == null){
-            controller = new SceneSelector() ;
+            controller = new GlobalSceneController() ;
         }
         return controller ;
     }
@@ -104,7 +108,7 @@ public  class SceneSelector {
 
         // here go initialization commands for the editor
 
-        controller.init_editor(root_dir, SceneSelector.controller);
+        controller.init_editor(root_dir, GlobalSceneController.controller);
 
         // ControllerClass_Editor_main controller = (FXMLLoader)editor.getController();
         primary_stage.setScene(Editor);
@@ -120,6 +124,35 @@ public  class SceneSelector {
 
     public ControllerClass_Editor_main getEditor(){return this.editor_controller; }
 
+    public void launch_WaveViewer() throws IOException {
+
+       /*
+        File fxmlFilemain = new File("src/main/resources/fxmlGraphics/WaveView/WaveViewerScene.fxml");
+        URL fxmlUrlmain = fxmlFilemain.toURI().toURL();
+
+        // get loader for fxml file
+        FXMLLoader loader = new FXMLLoader(fxmlUrlmain);
+
+        // load fxml file
+        Parent waveviewer = loader.load() ;
+
+        // get controller class instance object
+        waveViewerController controller = loader.getController();
+
+        this.WaveViewer = new Scene(waveviewer) ;
+        this.waveViewerController = controller ;
+
+        // here go initialization commands for the editor
+
+
+        // ControllerClass_Editor_main controller = (FXMLLoader)editor.getController();
+        primary_stage.setScene(WaveViewer);
+        primary_stage.show() ;
+        */
+
+        waveViewerController wv = new waveViewerController() ;
+
+    }
 }
 
 

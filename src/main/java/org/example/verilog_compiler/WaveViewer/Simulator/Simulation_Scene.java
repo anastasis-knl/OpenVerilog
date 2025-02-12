@@ -1,4 +1,5 @@
-package org.example.verilog_compiler.EditorScene.Simulator;
+/*
+package org.example.verilog_compiler.WaveViewer.Simulator;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -8,7 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.example.verilog_compiler.EditorScene.Simulator.commands.*;
+import org.example.verilog_compiler.WaveViewer.Simulator.commands.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -488,3 +489,4 @@ public class Simulation_Scene {
     }
 }
 
+*/

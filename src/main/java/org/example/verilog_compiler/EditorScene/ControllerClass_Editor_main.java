@@ -13,7 +13,7 @@ import javafx.scene.layout.VBox;
 import org.example.verilog_compiler.EditorScene.CandR.Compile;
 import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.directoryTreeNode;
 import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.fileExplorerTreeNode;
-import org.example.verilog_compiler.SceneSelector ;
+import org.example.verilog_compiler.GlobalSceneController;
 
 public class ControllerClass_Editor_main {
     File dir ;
@@ -41,12 +41,12 @@ public class ControllerClass_Editor_main {
     private static HashMap<Tab,TabController> tabControllers= new HashMap<>() ;
 
     File rootDir ;
-    SceneSelector globalSceneController ;
+    GlobalSceneController globalSceneController ;
     private fileExplorerTreeNode rootNodeFE;
     private directoryTreeNode rootNodeDir ;
 
 
-    public void init_editor(File root_dir, SceneSelector controller) throws IOException {
+    public void init_editor(File root_dir, GlobalSceneController controller) throws IOException {
         this.rootDir = root_dir ;
         this.globalSceneController = controller ;
         init_fileExplorer() ;

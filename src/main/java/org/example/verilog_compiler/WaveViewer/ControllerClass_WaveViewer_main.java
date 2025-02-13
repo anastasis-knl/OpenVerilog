@@ -3,6 +3,7 @@ package org.example.verilog_compiler.WaveViewer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main;
@@ -29,17 +30,36 @@ public class ControllerClass_WaveViewer_main {
     @FXML
     VBox vars ;
 
+    @FXML
+    VBox graphContainer ;
+
+    @FXML
+    VBox graphNameContainer;
+
+    @FXML
+    Canvas canvas;
     HashMap<String, Button> varsButtons ;
 
-    public ControllerClass_WaveViewer_main(){
+    // can't call init in constructor because the containers haven't been initialized by the loader at that point
+    @FXML
+    public void initialize() {
         this.controller = GlobalSceneController.get_controller()  ;
         // call root module to create the buttons
         varsButtons  = new LinkedHashMap<>() ;
 
-        this.init_vars() ;
-
+        this.init_vars();
     }
 
+    public Canvas getCanvas(){
+        return this.canvas ;
+    }
+    public VBox getGraphContainer(){
+        return this.graphContainer;
+    }
+
+    public VBox getGraphNameContainer(){
+        return this.graphNameContainer;
+    }
     private void init_vars() {
         // create all the buttons for every variable without name ?
         Timelines tmln = this.controller.getDataExtractor().getTimelines();
@@ -52,7 +72,9 @@ public class ControllerClass_WaveViewer_main {
             btn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    // paint waveform
+                    //  open a new graph under the name we are currently on hte txt
+                    String name = btn.getText();
+                    GlobalSceneController.get_controller().newGraph(key , name); ;
                 }
             });
 
@@ -60,6 +82,7 @@ public class ControllerClass_WaveViewer_main {
 
 
         }
+        this.hideAllVars();
 
 
     }

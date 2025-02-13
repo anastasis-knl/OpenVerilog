@@ -46,8 +46,10 @@ public class Module {
         if (level!=0) {
             txt += "L_ ";
         }
+        txt += this.name ;
         button.setText(txt) ;
         this.hidden = true ;
+        container.getChildren().add(this.button) ;
 
         this.button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -67,7 +69,6 @@ public class Module {
         for (Module sub : this.submodules) {
             sub.createModuleExplorer(container ,  level + 3);
         }
-        container.getChildren().add(this.button) ;
     }
 
 

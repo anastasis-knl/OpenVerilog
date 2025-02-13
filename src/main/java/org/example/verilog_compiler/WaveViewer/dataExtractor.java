@@ -37,7 +37,7 @@ public class dataExtractor {
 
         // file explorer -> splitPane -> [ VBOX[modules] , VBOX[varsOfModule] ]
     }
-
+    public Float getTimescale(){return this.timescale;} ;
     public Timelines getTimelines(){
         return this.timelines ;
     }
@@ -130,10 +130,11 @@ public class dataExtractor {
 
 
         timeTicksStr = scanner.next().substring(1); // tick time
-        pair = scanner.next();
 
         while(scanner.hasNext()) {
             pair = scanner.next() ; // first var of new
+
+            // #1^ > extract in one go but whta if b102 #
 
             ticks = Float.parseFloat(timeTicksStr);
             time = ticks*this.timescale ;
@@ -142,7 +143,12 @@ public class dataExtractor {
             // handle one timelog
             while(!(pair.charAt(0) == '#')) {
 
-                int ptr = this.extractDataPointer(pair )  ;
+                if (pair.charAt(0) == 'b' ) {
+                    // handle data of list  we want to turn it into 1002$ instead of b1002 $
+                    pair = pair.substring(1)  + scanner.next() ;
+
+                }
+                int ptr = this.extractDataPointer(pair);
 
                 value = pair.substring(0,ptr)  ; // extract value
                 symbol = pair.substring(ptr); // extract symbol
@@ -154,11 +160,17 @@ public class dataExtractor {
                 }
                 pair = scanner.next() ;
             }
+
             // now we have gone into the new timeline we need to pass the tick time
             timeTicksStr = pair.substring(1) ; // get just the time value
 
         }
+        for (String key : timelines.getTimelines().keySet()){
+            timelines.getTimelines().get(key).getTimePeriods().add(Float.valueOf(timeTicksStr));
+        }
+
     } ;
+
 
     void extract_log(Scanner scanner, String type ) {
         // data - version - timescale  - scope(var ... reg/wire) - upscope

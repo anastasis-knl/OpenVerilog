@@ -2,11 +2,16 @@ package org.example.verilog_compiler;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main;
 import javafx.scene.Parent;
 import org.example.verilog_compiler.SelectorScene.ControllerClass_Selector_main;
 import org.example.verilog_compiler.WaveViewer.ControllerClass_WaveViewer_main;
+import org.example.verilog_compiler.WaveViewer.Simulator.Graph;
+import org.example.verilog_compiler.WaveViewer.Simulator.Graph1;
+import org.example.verilog_compiler.WaveViewer.Simulator.GraphA;
+import org.example.verilog_compiler.WaveViewer.Simulator.Timeline.TimeLine;
 import org.example.verilog_compiler.WaveViewer.dataExtractor;
 
 import java.io.File;
@@ -25,7 +30,6 @@ public  class GlobalSceneController {
     ControllerClass_WaveViewer_main wave_controller;
 
 
-    dataExtractor timelines ;
     File root_dir ;
 
     // static class global one instance of master scene selector
@@ -33,6 +37,11 @@ public  class GlobalSceneController {
     private Scene WaveViewer;
     private dataExtractor dataExtractor;
 
+
+    private VBox graphContainer;
+    private VBox graphNameContainer ;
+
+    private LinkedList<Graph> graphs  ;
 
     private GlobalSceneController(){}  ;
 
@@ -60,9 +69,9 @@ public  class GlobalSceneController {
     }
 
 
-    // at the beginning of the program to launch the folder/ project selection screen
-    // works ok at this moment i don't know if it works on already running editor check
     void launch_Selector() throws IOException {
+        // at the beginning of the program to launch the folder/ project selection screen
+        // works ok at this moment i don't know if it works on already running editor check
 
         if(Editor != null) {
             editor_shutdown_routine();
@@ -91,7 +100,6 @@ public  class GlobalSceneController {
 
     }
 
-    // launch the program editor screen
 
     public void launch_Editor(File dir ) throws IOException {
 
@@ -136,6 +144,7 @@ public  class GlobalSceneController {
 
         dataExtractor wv = new dataExtractor() ;
         this.dataExtractor = wv ;
+        this.graphs = new LinkedList<>() ;
 
         File fxmlFilemain = new File("src/main/resources/fxmlGraphics/WaveView/WaveViewerScene.fxml");
         URL fxmlUrlmain = fxmlFilemain.toURI().toURL();
@@ -152,12 +161,12 @@ public  class GlobalSceneController {
         this.WaveViewer = new Scene(waveviewer) ;
         this.wave_controller = controller ;
 
+        this.graphContainer = this.wave_controller.getGraphContainer() ;
+        this.graphNameContainer = this.wave_controller.getGraphNameContainer() ;
         // here go initialization commands for the editor
 
 
         // ControllerClass_Editor_main controller = (FXMLLoader)editor.getController();
-
-
 
 
         // this should have been gotten by the load fxml not like this
@@ -176,11 +185,28 @@ public  class GlobalSceneController {
 
     public void showVars(LinkedList<String> vars, LinkedList<String> varNames) {
         // show the vars buttons on the wave scene
+        this.wave_controller.hideAllVars();
 
         for( int i = 0 ; i< vars.size() ; i = i +1 ) {
             this.wave_controller.showVar(vars.get(i), varNames.get(i));
         }
 
+    }
+
+    public void newGraph(String key, String name) {
+        // draw graph using the key for the timeline and the name used in the module
+        TimeLine tmln = this.dataExtractor.getTimelines().getTimeline(key)  ;
+        Graph newGraph;
+        if (tmln.isArray()){
+            newGraph = new GraphA();
+
+        }else{
+            newGraph = new Graph1() ;
+        }
+        newGraph.drawGraph(tmln ,name, this.wave_controller.getCanvas(),this.graphs.size(),
+                this.dataExtractor.getTimescale()); ;
+
+        graphs.add(newGraph) ;
     }
 }
 

@@ -45,4 +45,20 @@ public class TimelineA implements TimeLine{
 
     }
 
+    @Override
+    public LinkedList<Float> getTimePeriods() {
+        return this.time;
+    }
+
+    @Override
+    public LinkedList<String> getValues() {
+        return this.values;
+    }
+
+    @Override
+    public Float getDuration() {
+        return this.time.get(this.time.size()-1)  ;
+    }
+
+
 }

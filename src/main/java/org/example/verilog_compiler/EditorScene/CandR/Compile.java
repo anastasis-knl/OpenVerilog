@@ -73,7 +73,7 @@ public class Compile {
             List<String> lines = Files.readAllLines(Paths.get(tb.toURI()));
 
             List<String> writeLines = List.of("  initial", "    begin","  " +
-                    "    $dumpfile(\"" + this.dataDump.getAbsolutePath()+"\");", // add dump file place
+                    "    $dumpfile(\"" + this.dataDump.getAbsolutePath().replace("\\", "/")+"\");",
                     "      $dumpvars(0,"+ this.rootModule+ ");", // add root module name for dump relation
                     "    end",
                     "endmodule") ;

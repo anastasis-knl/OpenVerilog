@@ -134,7 +134,9 @@ public  class GlobalSceneController {
 
     public void launch_WaveViewer() throws IOException {
 
-       /*
+        dataExtractor wv = new dataExtractor() ;
+        this.dataExtractor = wv ;
+
         File fxmlFilemain = new File("src/main/resources/fxmlGraphics/WaveView/WaveViewerScene.fxml");
         URL fxmlUrlmain = fxmlFilemain.toURI().toURL();
 
@@ -145,31 +147,30 @@ public  class GlobalSceneController {
         Parent waveviewer = loader.load() ;
 
         // get controller class instance object
-        waveViewerController controller = loader.getController();
+        ControllerClass_WaveViewer_main controller = loader.getController();
 
         this.WaveViewer = new Scene(waveviewer) ;
-        this.waveViewerController = controller ;
+        this.wave_controller = controller ;
 
         // here go initialization commands for the editor
 
 
         // ControllerClass_Editor_main controller = (FXMLLoader)editor.getController();
-        primary_stage.setScene(WaveViewer);
-        primary_stage.show() ;
-        */
 
-        dataExtractor wv = new dataExtractor() ;
-        this.dataExtractor = wv ;
+
+
 
         // this should have been gotten by the load fxml not like this
-        this.wave_controller = new ControllerClass_WaveViewer_main();
 
         // after this we create the module explorer
 
         this.dataExtractor.getTopModule().createModuleExplorer(this.wave_controller.getModuleExplorer()  ,0 );
         this.dataExtractor.getTopModule().show() ;
 
-        // after this we call the controller that gets the data from the scene controlelr
+
+        primary_stage.setScene(WaveViewer);
+        primary_stage.show() ;
+
     }
 
 

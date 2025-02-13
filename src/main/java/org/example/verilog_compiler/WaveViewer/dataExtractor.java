@@ -194,14 +194,11 @@ public class dataExtractor {
 
             Module module = new Module(moduleName) ;
 
-
-            System.out.println("yse") ;
             // create root module ;
             if(this.currentModule.isEmpty()) {
+
                 this.topModule = module ;
             }else {
-                System.out.println("sub") ;
-
                 // add submodule to the parent module
                 this.currentModule.get(this.currentModule.size()-1).addSubmodule(module) ;
                 // current module change

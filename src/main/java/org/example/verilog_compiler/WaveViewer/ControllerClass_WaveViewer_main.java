@@ -2,6 +2,7 @@ package org.example.verilog_compiler.WaveViewer;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main;
@@ -20,10 +21,12 @@ public class ControllerClass_WaveViewer_main {
     // similar style and view as the file explorer
     // when pressing also + show vars
 
+    @FXML
     VBox moduleExplorer ;
 
     // create all possible buttons
     // show or hide them depending on case
+    @FXML
     VBox vars ;
 
     HashMap<String, Button> varsButtons ;

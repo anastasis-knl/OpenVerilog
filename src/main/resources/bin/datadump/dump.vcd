@@ -1,5 +1,5 @@
 $date
-	Wed Feb 12 17:07:12 2025
+	Thu Feb 13 14:20:06 2025
 $end
 $version
 	Icarus Verilog
@@ -7,15 +7,19 @@ $end
 $timescale
 	1s
 $end
-$scope module jtransmissiongatetb $end
-$var wire 1 ! y $end
-$var reg 1 " a $end
-$var reg 1 # control $end
-$scope module jtgate $end
-$var wire 1 " a $end
-$var wire 1 $ cbar $end
-$var wire 1 # control $end
-$var wire 1 ! y $end
+$scope module tb_latch $end
+$var wire 1 ! q $end
+$var reg 1 " d $end
+$var reg 3 # delay [2:0] $end
+$var reg 2 $ delay2 [1:0] $end
+$var reg 1 % en $end
+$var reg 1 & rstn $end
+$var integer 32 ' i [31:0] $end
+$scope module dl0 $end
+$var wire 1 " d $end
+$var wire 1 % en $end
+$var wire 1 & rstn $end
+$var reg 1 ! q $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -24,54 +28,51 @@ $dumpall
 $end
 #0
 $dumpvars
-1$
-0#
+bx '
+0&
+0%
+bx $
+bx #
 0"
-z!
+0!
 $end
-#50
-0$
-0!
-1#
-#100
-z!
-1$
-0#
-#150
-0$
-0!
-1#
-#200
-z!
-1$
-0#
-#250
-0$
-0!
-1#
-#300
-1$
-0#
-z!
+#10
+1&
+b1 $
+b100 #
+b0 '
+#11
+1%
+#15
+b11 $
+b1 #
+b1 '
+#18
+0%
+#19
 1"
-#350
-0$
+b1 $
+b101 #
+b10 '
+#20
 1!
-1#
-#400
-z!
-1$
-0#
-#450
-0$
+1%
+#25
+0!
+0"
+b10 $
+b11 '
+#27
+0%
+#32
+1"
+b1 $
+b1 #
+b100 '
+#33
 1!
-1#
-#500
-z!
-1$
-0#
-#550
-0$
-1!
-1#
-#600
+1%
+#34
+0!
+0"
+b101 '

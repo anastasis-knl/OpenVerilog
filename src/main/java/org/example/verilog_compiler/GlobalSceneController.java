@@ -6,12 +6,13 @@ import javafx.stage.Stage;
 import org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main;
 import javafx.scene.Parent;
 import org.example.verilog_compiler.SelectorScene.ControllerClass_Selector_main;
-import org.example.verilog_compiler.WaveViewer.waveViewerController;
+import org.example.verilog_compiler.WaveViewer.ControllerClass_WaveViewer_main;
+import org.example.verilog_compiler.WaveViewer.dataExtractor;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.LinkedList;
 
 public  class GlobalSceneController {
     static Stage primary_stage ;
@@ -21,13 +22,17 @@ public  class GlobalSceneController {
 
     ControllerClass_Selector_main login_controller ;
     ControllerClass_Editor_main editor_controller;
+    ControllerClass_WaveViewer_main wave_controller;
 
+
+    dataExtractor timelines ;
     File root_dir ;
 
     // static class global one instance of master scene selector
     private static GlobalSceneController controller ;
     private Scene WaveViewer;
-    private org.example.verilog_compiler.WaveViewer.waveViewerController waveViewerController;
+    private dataExtractor dataExtractor;
+
 
     private GlobalSceneController(){}  ;
 
@@ -40,6 +45,9 @@ public  class GlobalSceneController {
         return controller ;
     }
 
+    public dataExtractor getDataExtractor() {
+        return this.dataExtractor;
+    }
 
     void setPrimaryStage(Stage primary_stage_t){
         primary_stage = primary_stage_t;
@@ -150,7 +158,27 @@ public  class GlobalSceneController {
         primary_stage.show() ;
         */
 
-        waveViewerController wv = new waveViewerController() ;
+        dataExtractor wv = new dataExtractor() ;
+        this.dataExtractor = wv ;
+
+        // this should have been gotten by the load fxml not like this
+        this.wave_controller = new ControllerClass_WaveViewer_main();
+
+        // after this we create the module explorer
+
+        this.dataExtractor.getTopModule().createModuleExplorer(this.wave_controller.getModuleExplorer()  ,0 );
+        this.dataExtractor.getTopModule().show() ;
+
+        // after this we call the controller that gets the data from the scene controlelr
+    }
+
+
+    public void showVars(LinkedList<String> vars, LinkedList<String> varNames) {
+        // show the vars buttons on the wave scene
+
+        for( int i = 0 ; i< vars.size() ; i = i +1 ) {
+            this.wave_controller.showVar(vars.get(i), varNames.get(i));
+        }
 
     }
 }

@@ -5,7 +5,9 @@ import java.util.HashMap;
 public class Timelines {
 
     // Midleware thingy
+    // all vars
     private HashMap<String , TimeLine> tmlns ;
+
     public Timelines() {
         tmlns = new HashMap<>() ;
     }
@@ -36,6 +38,10 @@ public class Timelines {
             return true;
         }
         return false ;
+    }
+
+    public HashMap<String , TimeLine> getTimelines() {
+        return this.tmlns;
     }
 
 }

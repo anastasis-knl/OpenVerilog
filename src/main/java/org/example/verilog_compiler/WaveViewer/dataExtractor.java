@@ -7,8 +7,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
 
-public class waveViewerController {
+public class dataExtractor {
     File dataFile ;
+
 
     Timelines timelines ;
 
@@ -17,9 +18,12 @@ public class waveViewerController {
     Float timescale ;
 
     LinkedList<Module> currentModule;
+
+
     Module topModule ;
 
-    public  waveViewerController(){
+
+    public dataExtractor(){
         this.dataFile = new File("src/main/resources/bin/datadump/dump.vcd");
 
         // DATA EXTRACTION
@@ -27,13 +31,26 @@ public class waveViewerController {
 
         this.currentModule = new LinkedList<>() ;
 
+
+        // could go in seperate class with tools
         this.extractData() ;
 
-        // Create Filesystem TimeLine Class with variables and nodse
-        // Hold value changes
-        // List holds timelines and value changes and sums into value
-
+        // file explorer -> splitPane -> [ VBOX[modules] , VBOX[varsOfModule] ]
     }
+
+    public Timelines getTimelines(){
+        return this.timelines ;
+    }
+    public Module getTopModule(){
+        return this.topModule ;
+    }
+    public String getDate(){
+        return this.Date ;
+    }
+    public String getVersion(){
+        return this.Version ;
+    }
+
 
     void extractData() {
 

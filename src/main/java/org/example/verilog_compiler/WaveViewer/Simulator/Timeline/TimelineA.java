@@ -29,6 +29,7 @@ public class TimelineA implements TimeLine{
         return false;
     }
 
+    public Integer getBits(){return this.bits;};
     public void addChange(float time , String value){
         this.time.add(time) ;
         this.values.add(value) ;

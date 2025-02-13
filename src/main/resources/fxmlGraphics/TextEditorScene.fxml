@@ -10,26 +10,26 @@
 
 <SplitPane dividerPositions="0.19186652763295098" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="976.0" prefWidth="1562.0" style="-fx-pref-height: 1080; -fx-pref-width: 1920;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main">
   <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="974.0" prefWidth="325.0" style="-fx-background-color: #2B2D30; -fx-background-radius: 20; -fx-border-color: #42454A; -fx-border-width: 5;">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="974.0" prefWidth="325.0" style="-fx-background-color: #E8E8E8;">
          <children>
-            <VBox fx:id="FileExplorer" layoutY="-1.0" prefHeight="1080.0" prefWidth="365.0" />
+            <VBox fx:id="FileExplorer" prefHeight="1080.0" prefWidth="365.0" style="-fx-background-radius: 0; -fx-border-color: #E8E8E8; -fx-border-width: 3; -fx-border-radius: 5; -fx-background-color: #4E5452;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1080.0" prefWidth="1498.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1080.0" prefWidth="1498.0" style="-fx-background-color: #E8E8E8;">
          <children>
-            <VBox layoutY="-1.0" prefHeight="625.0" prefWidth="673.0" style="-fx-pref-height: 1080; -fx-pref-width: 1516; -fx-background-color: #FF2222;">
+            <VBox layoutY="-1.0" prefHeight="625.0" prefWidth="673.0" style="-fx-pref-height: 1080; -fx-pref-width: 1516; -fx-background-color: #E8E8E8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ToolBar fx:id="tools" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #2B2D30;">
+                  <ToolBar fx:id="tools" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #4E5452; -fx-background-radius: 10;">
                     <items>
-                      <Button fx:id="Compile" mnemonicParsing="false" text="Compile" />
-                        <Button fx:id="Run" mnemonicParsing="false" text="Run" />
-                        <Button fx:id="Settings" mnemonicParsing="false" text="Settings" />
-                        <Button fx:id="Save"   mnemonicParsing="false" text="Save" textFill="#0a0a0a" />
+                      <Button fx:id="Compile" mnemonicParsing="false" styleClass="ButtonMenu" text="Compile" />
+                        <Button fx:id="Run" mnemonicParsing="false" styleClass="ButtonMenu" text="Run" />
+                        <Button fx:id="Settings" mnemonicParsing="false" styleClass="ButtonMenu" text="Settings" />
+                        <Button fx:id="Save" mnemonicParsing="false" styleClass="ButtonMenu" text="Save" textFill="#0a0a0a" />
                     </items>
                   </ToolBar>
-                  <TabPane fx:id="editorTabs" prefHeight="1030.0" prefWidth="1516.0" style="-fx-background-color: #2B2D30; -fx-border-color: #1E1F22; -fx-border-width: 5; -fx-pref-height: 850;" tabClosingPolicy="UNAVAILABLE" />
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="1537.0" style="-fx-background-color: #2B2D30; -fx-border-width: 5; -fx-pref-height: 400;">
+                  <TabPane fx:id="editorTabs" prefHeight="1030.0" prefWidth="1516.0" style="-fx-background-color: #4E5452; -fx-border-color: #E8E8E8; -fx-border-width: 5; -fx-pref-height: 850;" stylesheets="@styles.css" tabClosingPolicy="UNAVAILABLE" />
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="298.0" prefWidth="1537.0" style="-fx-background-color: #4E5452; -fx-border-width: 5; -fx-pref-height: 400;">
                      <children>
-                        <TextArea fx:id="console" prefHeight="298.0" prefWidth="1516.0" />
+                        <TextArea fx:id="console" layoutY="6.0" prefHeight="298.0" prefWidth="1516.0" style="-fx-background-color: #4E5452;" stylesheets="@styles.css" text="&#10;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children></AnchorPane>
                </children>
             </VBox>

@@ -2,33 +2,50 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="716.0" prefWidth="954.0" style="-fx-background-color: #2E0734;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.verilog_compiler.SelectorScene.ControllerClass_Selector_main">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.verilog_compiler.SelectorScene.ControllerClass_Selector_main">
    <children>
-      <Label text="Label" />
-      <Label layoutX="220.0" layoutY="194.0" prefHeight="88.0" prefWidth="192.0" />
-      <Text fill="#fff3fb" layoutX="348.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choose a Project">
-         <font>
-            <Font name="System Italic" size="36.0" />
-         </font>
-      </Text>
-      <Button fx:id="ButtonNew" layoutX="296.0" layoutY="238.0" mnemonicParsing="false" onAction="#newProjectPressed" prefHeight="59.0" prefWidth="364.0" style="-fx-background-color: #2E0734; -fx-border-color: #8A159B; -fx-border-radius: 20;" text="New Project" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Button>
-      <Button fx:id="ButtonExisting" layoutX="295.0" layoutY="342.0" mnemonicParsing="false" onAction="#existingProjectPressed" prefHeight="59.0" prefWidth="364.0" style="-fx-background-color: #2E0734; -fx-border-color: #8A159B; -fx-border-radius: 20;" text="Existing project" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Button>
-      <Button fx:id="ButtonGo" layoutX="437.0" layoutY="444.0" mnemonicParsing="false" onAction="#GoPressed" style="-fx-background-color: #2E0734; -fx-border-color: #8A159B; -fx-border-radius: 20;" text="Go" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Button>
+      <AnchorPane layoutX="75.0" layoutY="33.0" prefHeight="689.0" prefWidth="483.0" style="-fx-background-color: #425452;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="341.0" fitWidth="317.0" layoutX="42.0" layoutY="14.0">
+               <image>
+                  <Image url="@../../../../../../../../../1ee73097b002f89bad93c0f92e0a8198.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="118.0" layoutY="365.0" prefHeight="82.0" prefWidth="165.0" text="Scorpio" textFill="#e8e8e8">
+               <font>
+                  <Font size="46.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="490.0" layoutY="9.0" prefHeight="689.0" prefWidth="496.0" style="-fx-background-color: #E8E8E8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="ButtonNew" layoutX="18.0" layoutY="211.0" mnemonicParsing="false" onAction="#newProjectPressed" prefHeight="59.0" prefWidth="364.0" style="-fx-background-radius: 5;" stylesheets="@loginStyles.css" text="New Project" textAlignment="CENTER" textFill="WHITE" AnchorPane.rightAnchor="18.0">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="ButtonExisting" layoutX="18.0" layoutY="296.0" mnemonicParsing="false" onAction="#existingProjectPressed" prefHeight="59.0" prefWidth="364.0" style="-fx-background-radius: 5;" stylesheets="@loginStyles.css" text="Existing project" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="ButtonGo" layoutX="143.0" layoutY="388.0" mnemonicParsing="false" onAction="#GoPressed" prefHeight="49.0" prefWidth="116.0" style="-fx-background-radius: 10;" stylesheets="@loginStyles.css" text="open" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Label layoutX="72.0" layoutY="58.0" prefHeight="96.0" prefWidth="257.0" text="Select a project">
+               <font>
+                  <Font size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -1,28 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="121.0" prefWidth="543.0" style="-fx-background-color: #2E0734;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.verilog_compiler.SelectorScene.ControllerClass_Selector_main">
+<AnchorPane prefHeight="130.0" prefWidth="391.0" style="-fx-background-color: #A8B8A0; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.verilog_compiler.SelectorScene.ControllerClass_Selector_main">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fill="WHITE" fontSmoothingType="LCD" layoutX="14.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Name: " textAlignment="CENTER">
+      <Text fill="#e8e8e8" fontSmoothingType="LCD" layoutX="11.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Name: " textAlignment="CENTER">
          <font>
-            <Font name="System Italic" size="25.0" />
+            <Font name="System Italic" size="23.0" />
          </font>
       </Text>
-      <TextField fx:id="GetNewName" layoutX="186.0" layoutY="35.0" prefHeight="36.0" prefWidth="239.0" promptText="NewProject" style="-fx-background-color: #2E0734; -fx-border-radius: 20; -fx-border-color: #8A159B;">
+      <TextField fx:id="GetNewName" editable="false" layoutX="170.0" layoutY="70.0" prefHeight="39.0" prefWidth="156.0" promptText="project0" style="-fx-background-color: #A8B8A0; -fx-border-radius: 20; -fx-border-color: #e8e8e8;" stylesheets="@loginStyles.css" text="project0!">
          <font>
-            <Font size="21.0" />
+            <Font size="16.0" />
          </font>
       </TextField>
-      <Button fx:id="SubmitNewName" layoutX="425.0" layoutY="26.0" mnemonicParsing="false" onAction="#SubmitNewNamePressed" style="-fx-background-color: #2E0734;" text="Submit" textFill="WHITE">
+      <Button fx:id="SubmitNewName" layoutX="336.0" layoutY="70.0" mnemonicParsing="false" onAction="#SubmitNewNamePressed" style="-fx-background-color: #A8B8A0; -fx-border-color: #e8e8e8; -fx-border-radius: 30;" stylesheets="@loginStyles.css" text="Ok" textFill="WHITE">
          <font>
-            <Font size="30.0" />
+            <Font size="18.0" />
          </font>
       </Button>
+      <Label layoutX="30.0" layoutY="23.0" text="Location" textFill="#e8e8e8">
+         <font>
+            <Font name="System Italic" size="23.0" />
+         </font>
+      </Label>
+      <Button fx:id="ButtonLocation" layoutX="148.0" layoutY="23.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="220.0" style="-fx-border-color: #e8e8e8;" stylesheets="@loginStyles.css" text="Button" />
    </children>
 </AnchorPane>

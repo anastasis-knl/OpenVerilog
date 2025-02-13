@@ -1,0 +1,12 @@
+Button {
+    -fx-background-color: #A8B8A0;
+    -fx-transition: background-color 0.5s ease-in-out, -fx-text-fill 0.5s ease-in-out;
+
+
+}
+
+/* Hover state of the button */
+Button:hover {
+    -fx-background-color: #B2C8B2;  /* Darker shade for hover effect */
+}
+

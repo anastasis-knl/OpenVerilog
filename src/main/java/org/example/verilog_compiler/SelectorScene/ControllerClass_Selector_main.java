@@ -23,6 +23,8 @@ import static java.lang.Math.min;
 public class ControllerClass_Selector_main {
 
     @FXML
+    public Button ButtonLocation;
+    @FXML
     private Button ButtonNew;
     @FXML
     private Button ButtonExisting;
@@ -71,7 +73,6 @@ public class ControllerClass_Selector_main {
         selectedDirectory = new File(chooser.showDialog(GlobalSceneController.get_primary_stage()).toString());
 
         // CREATE THE NEW STAGE
-
         // ask for name of new directory on new stage
         askProjectname_Stage = new Stage();
 
@@ -80,9 +81,14 @@ public class ControllerClass_Selector_main {
         URL fxmlUrlmain = fxmlFilemain.toURI().toURL();
         Parent selector = FXMLLoader.load(fxmlUrlmain);
 
+
         //create scene for the ask stage
+        //this.ButtonLocation.setText(selectedDirectory.getAbsolutePath());
+
         Scene ask_Scene = new Scene(selector);
+
         askProjectname_Stage.setScene(ask_Scene);
+
         askProjectname_Stage.show();
     }
 

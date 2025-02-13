@@ -68,7 +68,9 @@ public  class GlobalSceneController {
         return  ;
     }
 
-
+    public ControllerClass_WaveViewer_main getWave_controller(){
+        return this.wave_controller ;
+    }
     void launch_Selector() throws IOException {
         // at the beginning of the program to launch the folder/ project selection screen
         // works ok at this moment i don't know if it works on already running editor check

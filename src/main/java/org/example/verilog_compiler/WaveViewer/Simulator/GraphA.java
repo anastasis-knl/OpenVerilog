@@ -2,10 +2,15 @@ package org.example.verilog_compiler.WaveViewer.Simulator;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
+import org.example.verilog_compiler.GlobalSceneController;
 import org.example.verilog_compiler.WaveViewer.Simulator.Timeline.TimeLine;
 import org.example.verilog_compiler.WaveViewer.Simulator.Timeline.TimelineA;
 
+import java.awt.*;
 import java.util.LinkedList;
 
 public class GraphA implements Graph{
@@ -19,12 +24,13 @@ public class GraphA implements Graph{
     private Float timescale ;
 
     TimelineA tmln ;
+
     @Override
     public void drawGraph(TimeLine timeline, String name, Canvas canvas, Integer Level, Float timescaleF) {
         this.startH = Level*26;
 
 
-        this.timescale = timescaleF;
+        this.timescale = timescaleF*3;
         // 1 pixel for 1 second etc ;
         this.tmln = (TimelineA)timeline ;
 
@@ -45,9 +51,9 @@ public class GraphA implements Graph{
             Integer bits = this.tmln.getBits();
             String value = "";
             // value is like 101 even when five bits must become 00101
-            for (int i = 0; i < bits - values.get(x).length(); i++) {
+            /*for (int i = 0; i < bits - values.get(x).length(); i++) {
                 value += '0';
-            }
+            }*/
             value += values.get(x);
             Integer i = Math.round(times.get(x));
 
@@ -64,8 +70,17 @@ public class GraphA implements Graph{
             gc.strokeLine(timescale * times.get(x+1), this.startH + this.low, timescale * times.get(x+1), this.startH + this.high);
             gc.strokeLine(timescale * i, this.startH + this.low, timescale * times.get(x+1), this.startH + this.low);
             gc.strokeLine(timescale * i, this.startH + this.high, timescale * times.get(x+1), this.startH + this.high);
-
+            gc.setFont(javafx.scene.text.Font.font(10)); // Font size
+            gc.fillText(value ,timescale * i,this.startH + this.low );
         }
+
+        // now put the text for the variable name
+        VBox names = GlobalSceneController.get_controller().getWave_controller().getGraphNameContainer();
+        Text lbl = new Text();
+        lbl.setText(name);
+        lbl.setVisible(true) ;
+        names.getChildren().add(lbl) ;
+
     }
 
     @Override

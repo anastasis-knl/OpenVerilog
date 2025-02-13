@@ -88,6 +88,7 @@ public class ControllerClass_WaveViewer_main {
     }
 
     public void showVar(String Symbol , String name) {
+        
         this.varsButtons.get(Symbol).setText(name);
         this.varsButtons.get(Symbol).setVisible(true);
         this.varsButtons.get(Symbol).setManaged(true );

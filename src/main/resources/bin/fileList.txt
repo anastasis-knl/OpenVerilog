@@ -1,2 +1,2 @@
-/home/flugel/personal/programs/verilog/project1/trasmission.v
-/home/flugel/personal/programs/verilog/project1/trasmissionTb.v
+C:\Users\stark\Desktop\backbone\programs\VerilogDev\ones\counter.v.txt
+C:\Users\stark\Desktop\backbone\programs\VerilogDev\ones\tb.v.txt

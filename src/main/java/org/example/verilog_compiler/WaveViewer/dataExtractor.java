@@ -107,12 +107,21 @@ public class dataExtractor {
         String symbol ;
 
         while(!(data.equals("$end"))) {
+
+            if (data.charAt(0) == 'b' ) {
+                // handle data of list  we want to turn it into 1002$ instead of b1002 $
+                data = data.substring(1)  + scanner.next() ;
+
+            }
+
             int ptr = this.extractDataPointer(data )  ;
+
 
             value = data.substring(0,ptr)  ; // extract value
             symbol = data.substring(ptr); // extract symbol
 
             timelines.getTimeline(symbol).addChange(0 , value); // add initial value
+
 
             data = scanner.next() ;
         }
@@ -122,7 +131,7 @@ public class dataExtractor {
     void timelineExtraction(Scanner scanner){
         String timeTicksStr ;
         Float ticks;
-        Float time ;
+        Float time = 0f;
         String pair = "";
 
         String value ;
@@ -166,7 +175,7 @@ public class dataExtractor {
 
         }
         for (String key : timelines.getTimelines().keySet()){
-            timelines.getTimelines().get(key).getTimePeriods().add(Float.valueOf(timeTicksStr));
+            timelines.getTimelines().get(key).getTimePeriods().add(time);
         }
 
     } ;

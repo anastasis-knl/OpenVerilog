@@ -2,7 +2,10 @@ package org.example.verilog_compiler.WaveViewer.Simulator;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import org.example.verilog_compiler.GlobalSceneController;
 import org.example.verilog_compiler.WaveViewer.Simulator.Timeline.TimeLine;
 
 import java.io.CharArrayReader;
@@ -110,6 +113,12 @@ public class Graph1 implements Graph {
             }
 
         }
+        VBox names = GlobalSceneController.get_controller().getWave_controller().getGraphNameContainer();
+        Text lbl = new Text();
+        lbl.setText(name);
+        lbl.setVisible(true) ;
+        names.getChildren().add(lbl) ;
+
     }
 
     @Override

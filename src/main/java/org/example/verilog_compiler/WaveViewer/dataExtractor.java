@@ -15,6 +15,7 @@ public class dataExtractor {
 
     String Date ;
     String Version ;
+
     Float timescale ;
 
     LinkedList<Module> currentModule;
@@ -22,6 +23,7 @@ public class dataExtractor {
 
     Module topModule ;
 
+    Float max_time ;
 
     public dataExtractor(){
         this.dataFile = new File("src/main/resources/bin/datadump/dump.vcd");
@@ -53,7 +55,7 @@ public class dataExtractor {
 
 
     void extractData() {
-
+        this.max_time = 0F ;
         try {
             Scanner scanner = new Scanner(this.dataFile);
             extractHeader(scanner)  ;
@@ -69,6 +71,11 @@ public class dataExtractor {
         } catch (FileNotFoundException e) {
             System.out.println("File not found: " + e.getMessage());
         }
+
+        for (String key : timelines.getTimelines().keySet()){
+            max_time  = Math.max(max_time, timelines.getTimeline(key).getTimePeriods().getLast());
+        }
+
 
 
     }
@@ -127,7 +134,9 @@ public class dataExtractor {
         }
 
     }
-
+    void setTimeScale(Float timescale ){
+        this.timescale = timescale;
+    }
     void timelineExtraction(Scanner scanner){
         String timeTicksStr ;
         Float ticks;
@@ -195,7 +204,26 @@ public class dataExtractor {
 
         } else if (type.equals("$timescale")) {
             String data = scanner.next();
-            this.timescale= Float.parseFloat(data.substring(0,data.length()-1));
+
+            Float num =  Float.parseFloat(data.substring(0,1));
+            String timeUnit = data.substring(1) ;
+
+
+            if (timeUnit == "s"){
+                this.timescale = 1.0F;
+            }else if (timeUnit == "ms"){
+                this.timescale = 0.01F;
+
+            }else if (timeUnit == "μs"){
+                this.timescale = 0.00001F;
+
+            }else if (timeUnit == "ns"){
+                this.timescale = 0.00000001F;
+
+            }else {
+                this.timescale = 1F;
+            }
+
             scanner.next();// remove $end
         }
         else if (type.equals("$version")) {
@@ -269,6 +297,15 @@ public class dataExtractor {
             System.out.println(type);
             scanner.next();
         }
+
+    }
+
+    public void incraseTimeScale() {
+        this.timescale = this.timescale *2 ;
+    }
+
+    public void decreaseTimeScale() {
+        this.timescale = this.timescale /2 ;
 
     }
 

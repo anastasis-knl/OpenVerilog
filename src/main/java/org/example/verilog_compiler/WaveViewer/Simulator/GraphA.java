@@ -23,10 +23,34 @@ public class GraphA implements Graph{
     private int startH ;
     private Float timescale ;
 
+    private Text lbl ;
+    private Integer level;
+    private String name ;
+    private Canvas canvas;
+
+
     TimelineA tmln ;
 
     @Override
-    public void drawGraph(TimeLine timeline, String name, Canvas canvas, Integer Level, Float timescaleF) {
+    public void drawGraph(TimeLine timeline, String name, Canvas canvas, Integer level, Float timescaleF) {
+        // now put the text for the variable name
+
+        this.draw(timeline , name , canvas , level , timescaleF) ;
+
+        this.level = level  ;
+        this.canvas = canvas;
+        this.name = name;
+        this.timescale= timescaleF ;
+
+        VBox names = GlobalSceneController.get_controller().getWave_controller().getGraphNameContainer();
+        Text lbl = new Text();
+        lbl.setText(name);
+        lbl.setVisible(true) ;
+        names.getChildren().add(lbl) ;
+
+    }
+
+    private void draw(TimeLine timeline, String name, Canvas canvas, Integer Level, Float timescaleF) {
         this.startH = Level*26;
 
 
@@ -40,8 +64,20 @@ public class GraphA implements Graph{
         LinkedList<String> values = timeline.getValues() ;
         LinkedList<Float> times = timeline.getTimePeriods() ;
 
+        if (timescale >= 1){
+            timescale = timescale* 1 ;
 
-        Integer timescale = Math.round(timescaleF) ;
+        }
+        /*else if (timescale >= 0.001){
+            timescale = timescale* 1000 ;
+
+        }else if (timescale >= 0.000001){
+            timescale = timescale* 1000000;
+
+        }*/
+
+
+        Integer timescale = Math.round(this.timescale) ;
         for (int x =0 ; x < values.size() ; x+=1) {
 
             // high/ low / z middle / x unknown
@@ -74,12 +110,6 @@ public class GraphA implements Graph{
             gc.fillText(value ,timescale * i,this.startH + this.low );
         }
 
-        // now put the text for the variable name
-        VBox names = GlobalSceneController.get_controller().getWave_controller().getGraphNameContainer();
-        Text lbl = new Text();
-        lbl.setText(name);
-        lbl.setVisible(true) ;
-        names.getChildren().add(lbl) ;
 
     }
 
@@ -89,7 +119,10 @@ public class GraphA implements Graph{
     }
 
     @Override
-    public void changeZoom(int change) {
+    public void changeZoom(Float timscl) {
+
+        // works on the other way round with this shit
+        this.draw(this.tmln, this.name , this.canvas , this.level , 1/timscl);
 
     }
 }

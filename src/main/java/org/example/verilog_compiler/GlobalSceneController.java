@@ -205,10 +205,14 @@ public  class GlobalSceneController {
         }else{
             newGraph = new Graph1() ;
         }
-        newGraph.drawGraph(tmln ,name, this.wave_controller.getCanvas(),this.graphs.size(),
+        newGraph.drawGraph(tmln ,name, this.wave_controller.getCanvas(),this.graphs.size()+1,
                 this.dataExtractor.getTimescale()); ;
 
         graphs.add(newGraph) ;
+    }
+
+    public LinkedList<Graph> getGraphs() {
+        return graphs;
     }
 }
 

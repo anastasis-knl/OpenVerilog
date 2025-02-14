@@ -4,6 +4,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import org.example.verilog_compiler.GlobalSceneController;
 import org.example.verilog_compiler.WaveViewer.Simulator.Timeline.TimeLine;
@@ -20,21 +21,51 @@ public class Graph1 implements Graph {
     private int high = 2 ;
 
     private int startH ;
+
+    private Text lbl ;
+    private Integer level;
+    private TimeLine tmln;
+    private String name ;
+    private Canvas canvas;
+
     private Float timescale ;
 
     Boolean isLOW = false ;
     Boolean isHIGH = false;
     Boolean iSMIDDLE = true ;
+
+
     @Override
     public void drawGraph(TimeLine timeline, String name, Canvas canvas, Integer Level, Float timescaleF) {
-        // depending on 1) timescale 2) level => draw the lines
+
+        timescale = 0F ;
+        this.draw(timeline , name , canvas ,Level ,  timescaleF) ;
+
+
+        this.level = Level  ;
+        this.canvas = canvas;
+        this.name = name;
+        this.tmln = timeline ;
+        this.timescale= timescaleF ;
+
+        VBox names = GlobalSceneController.get_controller().getWave_controller().getGraphNameContainer();
+        Text lbl = new Text();
+        lbl.setFont(Font.font("Arial", 15));
+        lbl.setText(name);
+        lbl.setVisible(true) ;
+        names.getChildren().add(lbl) ;
+
+
+        this.lbl  = lbl  ;
+
+
+    }
+
+    private void draw(TimeLine timeline, String name, Canvas canvas, Integer Level, Float timescaleF) {
         this.startH = Level*26;
 
-        // [0 , 50 , 100 , 150 , 200 , 250 ]
-        // [1 , 0 , 1 , z , 0 ,  1 , 0 ]
-
         this.timescale = timescaleF;
-        // 1 pixel for 1 second etc ;
+
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setLineWidth(3);
@@ -42,11 +73,25 @@ public class Graph1 implements Graph {
         LinkedList<String> values = timeline.getValues() ;
         LinkedList<Float> times = timeline.getTimePeriods() ;
 
+        if (timescale >= 0.01){
+            timescale = timescale* 1 ;
 
-        Integer timescale = Math.round(timescaleF) ;
+        }
+        /*else if (timescale >= 0.001){
+            timescale = timescale* 1000 ;
+
+        }else if (timescale >= 0.000001){
+            timescale = timescale* 1000000;
+
+        }*/
+
+
+        System.out.println(this.timescale) ;
+        Integer timescale = Math.round(this.timescale) ;
+
         for (int x =0 ; x < values.size() ; x+=1) {
 
-                // high/ low / z middle / x unknown
+            // high/ low / z middle / x unknown
             // chnage of time times timescale for the thing
 
             Character value = values.get(x).charAt(0) ;
@@ -104,30 +149,30 @@ public class Graph1 implements Graph {
                     this.isLOW = false;
                     gc.strokeLine(timescale * i, this.startH + this.middle, timescale * i, this.startH + this.low);
                 }
-                    // draw line to next point
-                    gc.strokeLine(timescale*i, this.startH+this.middle, timescale*times.get(x+1), this.startH+this.middle);
-                    this.iSMIDDLE= true ;
+                // draw line to next point
+                gc.strokeLine(timescale*i, this.startH+this.middle, timescale*times.get(x+1), this.startH+this.middle);
+                this.iSMIDDLE= true ;
             }
             else{
-                    System.out.println(value + "this should be value")  ;
+                System.out.println(value + "this should be value")  ;
             }
 
         }
-        VBox names = GlobalSceneController.get_controller().getWave_controller().getGraphNameContainer();
-        Text lbl = new Text();
-        lbl.setText(name);
-        lbl.setVisible(true) ;
-        names.getChildren().add(lbl) ;
+
 
     }
+
 
     @Override
     public void deleteGraph() {
-
+        // the canvas has been cleared here and we can just redraw ad different timescale
     }
+
 
     @Override
-    public void changeZoom(int change) {
+    public void changeZoom(Float timscl) {
+        this.draw(this.tmln, this.name , this.canvas , this.level , 1/timscl);
 
     }
+
 }

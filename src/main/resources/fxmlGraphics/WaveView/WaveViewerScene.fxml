@@ -35,7 +35,8 @@
                      <children>
                         <ToolBar id="ToolBar" prefHeight="40.0" prefWidth="200.0" stylesheets="@stylesWave.css">
                           <items>
-                            <Button mnemonicParsing="false" styleClass="ButtonMenu" text="Zoom" />
+                            <Button mnemonicParsing="false" fx:id="Zoomin" styleClass="ButtonMenu" text=" Zoom in " />
+                              <Button mnemonicParsing="false"  fx:id="Zoomout" styleClass="ButtonMenu" text=" Zoom out" />
                           </items>
                         </ToolBar>
                         <ScrollPane>

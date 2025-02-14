@@ -7,6 +7,6 @@ public interface Graph {
 
     public void drawGraph(TimeLine timeline, String name, Canvas canvas , Integer Level, Float timescale) ;
     public void deleteGraph() ;
-    public void changeZoom(int change) ;
+    public void changeZoom(Float timscl) ;
 
 }

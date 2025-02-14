@@ -38,6 +38,12 @@ public class Module {
         this.moduleEx = container ;
 
         button = new Button() ;
+        button.getStyleClass().add("FE_Button") ;
+        button.getStylesheets().add(getClass().getResource("/fxmlGraphics/EditorScene/stylesInternalFE.css").toExternalForm());
+        button.setMaxWidth(Double.MAX_VALUE);   // Expands horizontally
+
+
+
         String txt = "" ;
         for (int i = 0 ; i < level-4 ; i++) {
             // proper indent for level

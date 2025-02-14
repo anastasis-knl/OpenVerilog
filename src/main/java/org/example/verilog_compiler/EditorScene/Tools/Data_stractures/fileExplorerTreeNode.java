@@ -14,9 +14,11 @@ import org.example.verilog_compiler.GlobalSceneController;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+
 import org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main;
 
 public class fileExplorerTreeNode {
@@ -42,12 +44,20 @@ public class fileExplorerTreeNode {
         this.level = level ;
         this.isDir = isDir ;
         this.hidden = false ;
-        this.file = file ;
-        this.editorTabs = editorTabs ;
+            this.file = file ;
+            this.editorTabs = editorTabs ;
         this.FE = fileExplorer ;
         this.children = new LinkedList<>() ;
 
         button = new Button() ;
+
+        // set the style
+        button.getStyleClass().add("FE_Button");
+
+
+        button.getStylesheets().add(getClass().getResource("/fxmlGraphics/EditorScene/stylesInternalFE.css").toExternalForm());
+        button.setMaxWidth(Double.MAX_VALUE);   // Expands horizontally
+
 
         // format text of the button
         // for each dir

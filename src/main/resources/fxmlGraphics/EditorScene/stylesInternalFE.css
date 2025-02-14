@@ -1,0 +1,16 @@
+.FE_Button{
+    -fx-background-color: #425452;
+    -fx-transition: background-color 0.5s ease-in-out, -fx-text-fill 0.5s ease-in-out;
+    -fx-text-fill: white;
+    -fx-font-size: 17;
+    -fx-font-weight: bold;
+    -fx-alignment: center-left;
+    -fx-padding: 5px 20px;
+
+
+}
+
+.FE_Button:hover {
+    -fx-background-color: #A8B8A0;
+}
+

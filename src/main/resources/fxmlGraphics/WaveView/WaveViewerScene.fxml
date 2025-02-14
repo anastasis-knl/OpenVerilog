@@ -19,11 +19,11 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <VBox fx:id="moduleExplorer" prefHeight="325.0" prefWidth="276.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0" />
+                              <VBox fx:id="moduleExplorer" layoutX="-1.0" prefHeight="325.0" prefWidth="276.0" styleClass="FileExplorer" stylesheets="@stylesWave.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="0.0" />
                            </children></AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <VBox fx:id="vars" layoutY="-6.0" prefHeight="325.0" prefWidth="276.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0" />
+                              <VBox fx:id="vars" layoutY="-6.0" prefHeight="325.0" prefWidth="276.0" styleClass="FileExplorer" stylesheets="@stylesWave.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0" />
                            </children></AnchorPane>
                     </items>
                   </SplitPane>
@@ -33,19 +33,19 @@
                <children>
                   <VBox layoutY="-1.0" prefHeight="1071.0" prefWidth="1431.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ToolBar prefHeight="40.0" prefWidth="200.0">
+                        <ToolBar id="ToolBar" prefHeight="40.0" prefWidth="200.0" stylesheets="@stylesWave.css">
                           <items>
-                            <Button mnemonicParsing="false" text="Button" />
+                            <Button mnemonicParsing="false" styleClass="ButtonMenu" text="Zoom" />
                           </items>
                         </ToolBar>
                         <ScrollPane>
                            <content>
-                              <SplitPane dividerPositions="0.15" prefHeight="1028.0" prefWidth="1431.0">
+                              <SplitPane dividerPositions="0.15" prefHeight="1028.0" prefWidth="1431.0" styleClass="background" stylesheets="@stylesWave.css">
                                 <items>
-                                  <VBox fx:id="graphNameContainer" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-                                  <VBox fx:id="graphContainer" minHeight="0.0" minWidth="0.0" prefHeight="1026.0" prefWidth="1195.0">
+                                  <VBox id="labelVarArea" fx:id="graphNameContainer" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@stylesWave.css" />
+                                  <VBox fx:id="graphContainer" minHeight="0.0" minWidth="0.0" prefHeight="1026.0" prefWidth="1314.0">
                                        <children>
-                                          <Canvas fx:id="canvas" height="1080.0" width="4000.0">
+                                          <Canvas id="Canvas" fx:id="canvas" height="1080.0" width="4000.0">
                                              <VBox.margin>
                                                 <Insets />
                                              </VBox.margin>

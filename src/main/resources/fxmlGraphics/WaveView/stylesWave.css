@@ -1,0 +1,35 @@
+.ButtonMenu{
+    -fx-background-color: #A8B8A0;
+    -fx-transition: background-color 0.5s ease-in-out, -fx-text-fill 0.5s ease-in-out;
+    -fx-background-radius : 15px;
+    -fx-border-radius: 15px;
+
+}
+.ButtonMenu:hover {
+    -fx-background-color: #B2C8B2;
+}
+
+.FileExplorer{
+    -fx-background-color:#425452;
+}
+
+#ToolBar{
+    -fx-background-color: #E8E8E8;
+
+
+}
+
+.background{
+    -fx-background-color: #E8E8E8;
+
+}
+
+#labelVarArea{
+    -fx-background-color:  #A8B8A0;
+    -fx-border-color: #E8E8E8;
+    -fx-padding: 10px;
+    -fx-border-width: 5px;
+}
+
+#Canvas{
+}

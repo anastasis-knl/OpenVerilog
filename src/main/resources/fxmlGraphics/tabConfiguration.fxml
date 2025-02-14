@@ -8,18 +8,18 @@
 
 <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="948.0" prefWidth="1693.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.verilog_compiler.EditorScene.TabController">
   <content>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="236.0" prefWidth="249.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="236.0" prefWidth="249.0" style="-fx-background-color: #E8E8E8;">
          <children>
-            <SplitPane dividerPositions="0.07746895328208162" layoutX="-2.0" prefHeight="948.0" prefWidth="1693.0">
+            <SplitPane dividerPositions="0.07746895328208162" layoutX="-2.0" prefHeight="948.0" prefWidth="1693.0" style="-fx-background-color: #E8E8E8;">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: #E8E8E8;">
                      <children>
-                        <TextFlow fx:id="line" prefHeight="549.0" prefWidth="268.0" style="-fx-background-color: #E8E8E8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <TextFlow fx:id="line" prefHeight="549.0" prefWidth="268.0" styleClass="lineNumberArea" stylesheets="@styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="547.0" prefWidth="762.0">
                      <children>
-                        <TextArea fx:id="textEditor" layoutX="-2.0" prefHeight="948.0" prefWidth="1418.0" style="-fx-background-color: #6C757D;" stylesheets="@styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <TextArea fx:id="textEditor" layoutX="-2.0" prefHeight="948.0" prefWidth="1418.0" style="-fx-background-color: #6C757D;" styleClass="writeArea" stylesheets="@styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
               </items>

@@ -67,6 +67,11 @@ public class ControllerClass_WaveViewer_main {
 
         for (String key : vars.keySet()){
             Button btn = new Button() ;
+
+            btn.getStyleClass().add("FE_Button") ;
+            btn.getStylesheets().add(getClass().getResource("/fxmlGraphics/EditorScene/stylesInternalFE.css").toExternalForm());
+            btn.setMaxWidth(Double.MAX_VALUE);   // Expands horizontally
+
             this.varsButtons.put(key , btn) ;
 
             btn.setOnAction(new EventHandler<ActionEvent>() {

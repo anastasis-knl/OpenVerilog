@@ -1,2 +1,2 @@
-C:\Users\stark\Desktop\backbone\programs\VerilogDev\ones\counter.v.txt
-C:\Users\stark\Desktop\backbone\programs\VerilogDev\ones\tb.v.txt
+C:\Users\stark\Desktop\backbone\programs\VerilogDev\ones\counter.v
+C:\Users\stark\Desktop\backbone\programs\VerilogDev\ones\tb.v

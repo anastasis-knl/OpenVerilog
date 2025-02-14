@@ -81,6 +81,7 @@ public class ControllerClass_Editor_main {
     private void init_fileExplorer() throws IOException {
         // delete the conetnts of fileList.txt ;
         scene_tools.clearFileListfile();
+
         // get the file root folder from the root dir
         directoryTreeNode root = scene_tools.getDirectoryTree(this.rootDir) ;
         fileExplorerTreeNode rootFE = new fileExplorerTreeNode(root.getName(),0 , FileExplorer , true , root , editorTabs)  ;

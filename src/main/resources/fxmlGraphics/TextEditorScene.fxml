@@ -10,11 +10,11 @@
 
 <SplitPane dividerPositions="0.19186652763295098" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="976.0" prefWidth="1562.0" style="-fx-pref-height: 1080; -fx-background-color: E8E8E8; -fx-pref-width: 1920;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main">
   <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="974.0" prefWidth="325.0" styleClass="background" stylesheets="@styles.css">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000000" prefWidth="325.0" styleClass="background" stylesheets="@styles.css">
          <children>
             <VBox id="FileExplorer" fx:id="FileExplorer" layoutX="20.0" prefHeight="1080.0" prefWidth="365.0" stylesheets="@styles.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1080.0" prefWidth="1498.0" styleClass="background" stylesheets="@styles.css">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000000" prefWidth="1498.0" styleClass="background" stylesheets="@styles.css">
          <children>
             <VBox layoutY="-1.0" prefHeight="625.0" prefWidth="673.0" style="-fx-pref-height: 1080; -fx-pref-width: 1516; -fx-background-color: E8E8E8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>

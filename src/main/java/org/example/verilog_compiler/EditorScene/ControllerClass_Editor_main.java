@@ -89,7 +89,6 @@ public class ControllerClass_Editor_main {
 
         this.rootNodeDir = root ;
         this.rootNodeFE = rootFE ;
-        return ;
     }
 
     public TextArea getConsole(){return this.console;} ;

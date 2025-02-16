@@ -46,10 +46,13 @@
 }
 
 .lineNumberArea{
-    -fx-background-color:  #A8B8A0;
+    -fx-control-inner-background:  #A8B8A0;
     -fx-border-color: #E8E8E8;
     -fx-padding: 10px;
     -fx-border-width: 5px;
+    -fx-font-size: 15;
+    -fx-text-fill: white;
+
 }
 
 }

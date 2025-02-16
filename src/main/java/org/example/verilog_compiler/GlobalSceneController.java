@@ -206,7 +206,7 @@ public  class GlobalSceneController {
             newGraph = new Graph1() ;
         }
         newGraph.drawGraph(tmln ,name, this.wave_controller.getCanvas(),this.graphs.size()+1,
-                this.dataExtractor.getTimescale()); ;
+                1/this.dataExtractor.getTimescale()); ;
 
         graphs.add(newGraph) ;
     }

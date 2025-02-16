@@ -51,6 +51,7 @@ public class ControllerClass_WaveViewer_main {
     HashMap<String, Button> varsButtons ;
 
 
+    Integer  times ;
 
     // can't call init in constructor because the containers haven't been initialized by the loader at that point
     @FXML
@@ -59,7 +60,9 @@ public class ControllerClass_WaveViewer_main {
         // call root module to create the buttons
         varsButtons  = new LinkedHashMap<>() ;
 
-        drawRuler(GlobalSceneController.get_controller().getDataExtractor().getTimescale()) ;
+        Float timescale = GlobalSceneController.get_controller().getDataExtractor().getTimescale() ;
+        this.times = (int) (GlobalSceneController.get_controller().getDataExtractor().max_time / timescale);
+        drawRuler(timescale) ;
 
         this.init_vars();
 
@@ -81,42 +84,53 @@ public class ControllerClass_WaveViewer_main {
                     gr.changeZoom(GlobalSceneController.get_controller().getDataExtractor().getTimescale());
 
                 }
+
             }
         });
-
         this.Zoomin.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-                LinkedList<Graph> Grlst = GlobalSceneController.get_controller().getGraphs();
-
-                Float tmscl = GlobalSceneController.get_controller().getDataExtractor().getTimescale();
-                // create new thingy with numbers
-                drawRuler(tmscl/2) ;
-
-                GlobalSceneController.get_controller().getDataExtractor().setTimeScale(tmscl/2);
-
-                for (Graph gr : Grlst) {
-                    gr.changeZoom(GlobalSceneController.get_controller().getDataExtractor().getTimescale());
-                }
-
-
+                zoomIn() ;
             }
-        });
 
+        });
+        zoomIn();
+        zoomIn();
+        zoomIn();
+        zoomIn();
+        zoomIn();
+        zoomIn();
 
     }
+
+    public void zoomIn() {
+        canvas.getGraphicsContext2D().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        LinkedList<Graph> Grlst = GlobalSceneController.get_controller().getGraphs();
+
+        Float tmscl = GlobalSceneController.get_controller().getDataExtractor().getTimescale();
+        // create new thingy with numbers
+        drawRuler(tmscl/2) ;
+
+        GlobalSceneController.get_controller().getDataExtractor().setTimeScale(tmscl/2);
+
+        for (Graph gr : Grlst) {
+            gr.changeZoom(GlobalSceneController.get_controller().getDataExtractor().getTimescale());
+        }
+
+    }
+
     private void drawRuler(Float timescale){
+
         GraphicsContext gc = this.canvas.getGraphicsContext2D()   ;
-        gc.setFill(Color.BLUE);
+        gc.setStroke(Color.BLUE);
 
-        Integer times = (int) (GlobalSceneController.get_controller().getDataExtractor().max_time / timescale);
+        gc.setLineWidth(2);
 
-        gc.strokeLine(0, 3,  times , 3);
+        gc.strokeLine(0, 1,  times/timescale , 1);
+        gc.setLineWidth(1);
 
-        //five for each 1
-        for (int i = 0 ; i < times ; i++) {
-            gc.strokeLine(i/timescale, 0,  i/timescale , 10);
+        for (int i = 0 ; i <= times ; i++) {
+            gc.strokeLine(i/timescale, 0,  i/timescale , gc.getCanvas().getHeight());
 
         }
 

@@ -86,7 +86,6 @@ public class Graph1 implements Graph {
         }*/
 
 
-        System.out.println(this.timescale) ;
         Integer timescale = Math.round(this.timescale) ;
 
         for (int x =0 ; x < values.size() ; x+=1) {
@@ -158,6 +157,7 @@ public class Graph1 implements Graph {
             }
 
         }
+
 
 
     }

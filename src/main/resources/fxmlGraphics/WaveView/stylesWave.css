@@ -20,7 +20,7 @@
 }
 
 .background{
-    -fx-background-color: #E8E8E8;
+    -fx-background-color: #000901;
 
 }
 
@@ -29,6 +29,9 @@
     -fx-border-color: #E8E8E8;
     -fx-padding: 10px;
     -fx-border-width: 5px;
+    -fx-text-fill: white;
+    -fx-font-size: 25;
+
 }
 
 #Canvas{

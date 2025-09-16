@@ -28,6 +28,29 @@ public class directoryTreeNode {
 
     }
 
+    public directoryTreeNode(String parentPath, String name) {
+        // we need to create this file
+        this.getFileInstance = new File(parentPath , name) ;
+        this.isDir = false ;
+        this.name = name;
+
+        this.dirNodes = new LinkedList<>();
+        this.fileNodes = new LinkedList<>() ;
+
+    }
+
+    public directoryTreeNode(String parentPath, String name, boolean isDir){
+        // create the directory
+        this.getFileInstance = new File(parentPath , name) ;
+        this.getFileInstance.mkdirs() ;
+        this.isDir = true  ;
+        this.name = name;
+
+        this.dirNodes = new LinkedList<>();
+        this.fileNodes = new LinkedList<>() ;
+
+    }
+
     public void addDirNode(directoryTreeNode childNode) {
         this.dirNodes.add(childNode);
     }
@@ -59,6 +82,10 @@ public class directoryTreeNode {
     public void setRelativePath(String path) throws IOException {
         this.relativePath = path + "/" + this.name ;
         create_temp_file();
+
+    }
+
+    public void create_real_file()throws IOException{
 
     }
 

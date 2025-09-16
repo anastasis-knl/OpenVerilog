@@ -3,9 +3,8 @@ package org.example.verilog_compiler.EditorScene.Tools.Data_stractures;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
+import javafx.scene.Parent;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
@@ -14,12 +13,14 @@ import org.example.verilog_compiler.GlobalSceneController;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main;
+import org.example.verilog_compiler.WaveViewer.ControllerClass_WaveViewer_main;
 
 public class fileExplorerTreeNode {
 
@@ -37,6 +38,9 @@ public class fileExplorerTreeNode {
     String name ;
     int level ;
 
+    public directoryTreeNode getDirNode(){
+        return this.file ;
+    }
     public fileExplorerTreeNode(String name, int level, VBox fileExplorer, Boolean isDir, directoryTreeNode file
     , TabPane editorTabs){
 
@@ -104,7 +108,45 @@ public class fileExplorerTreeNode {
                 }
             }
         });
+        // set menu for right click
+        ContextMenu cm = new ContextMenu() ;
+        MenuItem newFile = new MenuItem("new File") ;
+        MenuItem newDirectory = new MenuItem("new directory") ;
+        MenuItem delete  = new MenuItem("delete") ;
 
+        newFile.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                File fxmlFilemain = new File("src/main/resources/fxmlGraphics/EditorScene/newFile.fxml");
+                URL fxmlUrlmain = null;
+
+                try {
+                    fxmlUrlmain = fxmlFilemain.toURI().toURL();
+                } catch (MalformedURLException e) {
+                    throw new RuntimeException(e);
+                }
+
+                // get loader for fxml file
+                FXMLLoader loader = new FXMLLoader(fxmlUrlmain);
+
+                // load fxml file
+                try {
+                    Parent waveviewer = loader.load() ;
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+
+                // get controller class instance object
+                NewFileController controller = loader.getController();
+                controller.initButton( fileExplorerTreeNode.this);
+
+            }
+        });
+
+
+
+        cm.getItems().addAll(newFile, newDirectory, delete) ;
+        button.setContextMenu(cm) ;
         fileExplorer.getChildren().add(this.button) ;
     }
 

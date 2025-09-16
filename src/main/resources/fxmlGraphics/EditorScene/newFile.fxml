@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="68.0" prefWidth="265.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #A8B8A0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.verilog_compiler.EditorScene.Tools.Data_stractures.NewFile">
+   <children>
+      <Label layoutX="10.0" layoutY="21.0" text="name:">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="58.0" layoutY="22.0" style="-fx-background-color: #A8B8A0; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #E8E8E8;" />
+      <Button layoutX="218.0" layoutY="22.0" mnemonicParsing="false" styleClass="ButtonMenu" stylesheets="@../../../../../resources/styles.css" text="ok!" />
+   </children>
+</AnchorPane>

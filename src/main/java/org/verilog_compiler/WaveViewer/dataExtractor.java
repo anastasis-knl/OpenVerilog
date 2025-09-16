@@ -1,7 +1,7 @@
-package org.example.verilog_compiler.WaveViewer;
+package org.verilog_compiler.WaveViewer;
 
-import org.example.verilog_compiler.WaveViewer.Simulator.Module;
-import org.example.verilog_compiler.WaveViewer.Simulator.Timeline.Timelines;
+import org.verilog_compiler.WaveViewer.Simulator.Module;
+import org.verilog_compiler.WaveViewer.Simulator.Timeline.Timelines;
 
 import java.io.File;
 import java.io.FileNotFoundException;

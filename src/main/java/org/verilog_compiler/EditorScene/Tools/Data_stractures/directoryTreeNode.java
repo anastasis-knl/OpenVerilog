@@ -1,4 +1,4 @@
-package org.example.verilog_compiler.EditorScene.Tools.Data_stractures;
+package org.verilog_compiler.EditorScene.Tools.Data_stractures;
 import java.io.*;
 import java.nio.file.Files;
 import java.util.LinkedList;

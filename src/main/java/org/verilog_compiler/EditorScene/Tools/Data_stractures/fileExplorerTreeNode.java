@@ -1,4 +1,4 @@
-package org.example.verilog_compiler.EditorScene.Tools.Data_stractures;
+package org.verilog_compiler.EditorScene.Tools.Data_stractures;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -8,8 +8,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
-import org.example.verilog_compiler.EditorScene.TabController;
-import org.example.verilog_compiler.GlobalSceneController;
+import org.verilog_compiler.EditorScene.TabController;
+import org.verilog_compiler.GlobalSceneController;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,8 +19,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main;
-import org.example.verilog_compiler.WaveViewer.ControllerClass_WaveViewer_main;
+import org.verilog_compiler.EditorScene.ControllerClass_Editor_main;
+import org.verilog_compiler.WaveViewer.ControllerClass_WaveViewer_main;
 
 public class fileExplorerTreeNode {
 

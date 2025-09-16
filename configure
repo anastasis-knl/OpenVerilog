@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "Checking for Java compiler..."
+if ! command -v javac &> /dev/null; then
+  echo "Error: javac not found. Please install the Java JDK."
+  exit 1
+fi
+
+echo "Found javac: $(javac -version 2>&1)"
+echo "Ready to run 'make'"

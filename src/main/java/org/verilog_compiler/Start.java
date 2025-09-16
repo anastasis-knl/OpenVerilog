@@ -1,4 +1,4 @@
-package org.example.verilog_compiler;
+package org.verilog_compiler;
 
 import javafx.application.Application;
 import javafx.stage.Stage;

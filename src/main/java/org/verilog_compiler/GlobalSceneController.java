@@ -1,18 +1,18 @@
-package org.example.verilog_compiler;
+package org.verilog_compiler;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main;
+import org.verilog_compiler.EditorScene.ControllerClass_Editor_main;
 import javafx.scene.Parent;
-import org.example.verilog_compiler.SelectorScene.ControllerClass_Selector_main;
-import org.example.verilog_compiler.WaveViewer.ControllerClass_WaveViewer_main;
-import org.example.verilog_compiler.WaveViewer.Simulator.Graph;
-import org.example.verilog_compiler.WaveViewer.Simulator.Graph1;
-import org.example.verilog_compiler.WaveViewer.Simulator.GraphA;
-import org.example.verilog_compiler.WaveViewer.Simulator.Timeline.TimeLine;
-import org.example.verilog_compiler.WaveViewer.dataExtractor;
+import org.verilog_compiler.SelectorScene.ControllerClass_Selector_main;
+import org.verilog_compiler.WaveViewer.ControllerClass_WaveViewer_main;
+import org.verilog_compiler.WaveViewer.Simulator.Graph;
+import org.verilog_compiler.WaveViewer.Simulator.Graph1;
+import org.verilog_compiler.WaveViewer.Simulator.GraphA;
+import org.verilog_compiler.WaveViewer.Simulator.Timeline.TimeLine;
+import org.verilog_compiler.WaveViewer.dataExtractor;
 
 import java.io.File;
 import java.io.IOException;

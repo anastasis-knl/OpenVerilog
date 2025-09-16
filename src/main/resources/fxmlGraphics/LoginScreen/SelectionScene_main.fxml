@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.verilog_compiler.SelectorScene.ControllerClass_Selector_main">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.verilog_compiler.SelectorScene.ControllerClass_Selector_main">
    <children>
       <AnchorPane layoutX="75.0" layoutY="33.0" prefHeight="689.0" prefWidth="483.0" style="-fx-background-color: #425452;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="0.0">
          <children>

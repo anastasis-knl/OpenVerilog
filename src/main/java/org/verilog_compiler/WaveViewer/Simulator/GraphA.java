@@ -1,4 +1,4 @@
-package org.example.verilog_compiler.WaveViewer.Simulator;
+package org.verilog_compiler.WaveViewer.Simulator;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -6,9 +6,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
-import org.example.verilog_compiler.GlobalSceneController;
-import org.example.verilog_compiler.WaveViewer.Simulator.Timeline.TimeLine;
-import org.example.verilog_compiler.WaveViewer.Simulator.Timeline.TimelineA;
+import org.verilog_compiler.GlobalSceneController;
+import org.verilog_compiler.WaveViewer.Simulator.Timeline.TimeLine;
+import org.verilog_compiler.WaveViewer.Simulator.Timeline.TimelineA;
 
 import java.awt.*;
 import java.util.LinkedList;

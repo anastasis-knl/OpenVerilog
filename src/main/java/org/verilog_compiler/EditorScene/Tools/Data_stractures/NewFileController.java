@@ -1,4 +1,4 @@
-package org.example.verilog_compiler.EditorScene.Tools.Data_stractures;
+package org.verilog_compiler.EditorScene.Tools.Data_stractures;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

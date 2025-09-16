@@ -1,4 +1,4 @@
-package org.example.verilog_compiler.WaveViewer;
+package org.verilog_compiler.WaveViewer;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -8,11 +8,11 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import org.example.verilog_compiler.EditorScene.ControllerClass_Editor_main;
-import org.example.verilog_compiler.GlobalSceneController;
-import org.example.verilog_compiler.WaveViewer.Simulator.Graph;
-import org.example.verilog_compiler.WaveViewer.Simulator.Timeline.TimeLine;
-import org.example.verilog_compiler.WaveViewer.Simulator.Timeline.Timelines;
+import org.verilog_compiler.EditorScene.ControllerClass_Editor_main;
+import org.verilog_compiler.GlobalSceneController;
+import org.verilog_compiler.WaveViewer.Simulator.Graph;
+import org.verilog_compiler.WaveViewer.Simulator.Timeline.TimeLine;
+import org.verilog_compiler.WaveViewer.Simulator.Timeline.Timelines;
 
 import java.io.IOException;
 import java.util.HashMap;

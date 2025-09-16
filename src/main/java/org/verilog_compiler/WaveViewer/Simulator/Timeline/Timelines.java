@@ -1,4 +1,4 @@
-package org.example.verilog_compiler.WaveViewer.Simulator.Timeline;
+package org.verilog_compiler.WaveViewer.Simulator.Timeline;
 
 import java.util.HashMap;
 

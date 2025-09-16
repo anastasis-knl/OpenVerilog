@@ -4,14 +4,14 @@ module org.example.verilog_compiler {
     requires java.desktop;
     requires java.sql;
 
-    exports org.example.verilog_compiler.EditorScene; // Export the package containing your controller
-    opens org.example.verilog_compiler.EditorScene to javafx.fxml; // Open the package to javafx.fxml for reflection
+    exports org.verilog_compiler.EditorScene; // Export the package containing your controller
+    opens org.verilog_compiler.EditorScene to javafx.fxml; // Open the package to javafx.fxml for reflection
 
-    exports org.example.verilog_compiler.WaveViewer; // Export the package containing your controller
-    opens org.example.verilog_compiler.WaveViewer to javafx.fxml; // Open the package to javafx.fxml for reflection
+    exports org.verilog_compiler.WaveViewer; // Export the package containing your controller
+    opens org.verilog_compiler.WaveViewer to javafx.fxml; // Open the package to javafx.fxml for reflection
 
-    opens org.example.verilog_compiler to javafx.fxml;
-    exports org.example.verilog_compiler;
-    exports org.example.verilog_compiler.SelectorScene;
-    opens org.example.verilog_compiler.SelectorScene to javafx.fxml;
+    opens org.verilog_compiler to javafx.fxml;
+    exports org.verilog_compiler;
+    exports org.verilog_compiler.SelectorScene;
+    opens org.verilog_compiler.SelectorScene to javafx.fxml;
 }

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.TextFlow?>
 
-<ScrollPane maxHeight="Infinity" maxWidth="Infinity" minHeight="0" minWidth="0" prefHeight="948.0" prefWidth="1693.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.verilog_compiler.EditorScene.TabController">
+<ScrollPane maxHeight="Infinity" maxWidth="Infinity" minHeight="0" minWidth="0" prefHeight="948.0" prefWidth="1693.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.verilog_compiler.EditorScene.TabController">
     <content>
             <!-- Wrap the entire SplitPane in the ScrollPane -->
             <SplitPane dividerPositions="0.07746895328208162" layoutX="-2.0" prefHeight="948.0" prefWidth="1693.0" style="-fx-background-color: #E8E8E8;">

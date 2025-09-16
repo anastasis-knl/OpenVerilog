@@ -1,7 +1,7 @@
-package org.example.verilog_compiler.WaveViewer.Simulator;
+package org.verilog_compiler.WaveViewer.Simulator;
 
 import javafx.scene.canvas.Canvas;
-import org.example.verilog_compiler.WaveViewer.Simulator.Timeline.TimeLine;
+import org.verilog_compiler.WaveViewer.Simulator.Timeline.TimeLine;
 
 public interface Graph {
 

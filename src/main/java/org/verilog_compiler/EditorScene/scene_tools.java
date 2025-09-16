@@ -1,7 +1,7 @@
-package org.example.verilog_compiler.EditorScene;
+package org.verilog_compiler.EditorScene;
 
-import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.directoryTreeNode;
-import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.fileExplorerTreeNode;
+import org.verilog_compiler.EditorScene.Tools.Data_stractures.directoryTreeNode;
+import org.verilog_compiler.EditorScene.Tools.Data_stractures.fileExplorerTreeNode;
 
 import java.io.File;
 import java.io.FileOutputStream;

@@ -1,4 +1,4 @@
-package org.example.verilog_compiler.EditorScene;
+package org.verilog_compiler.EditorScene;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -11,10 +11,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.* ;
 import javafx.scene.layout.VBox;
-import org.example.verilog_compiler.EditorScene.CandR.Compile;
-import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.directoryTreeNode;
-import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.fileExplorerTreeNode;
-import org.example.verilog_compiler.GlobalSceneController;
+import org.verilog_compiler.EditorScene.CandR.Compile;
+import org.verilog_compiler.EditorScene.Tools.Data_stractures.directoryTreeNode;
+import org.verilog_compiler.EditorScene.Tools.Data_stractures.fileExplorerTreeNode;
+import org.verilog_compiler.GlobalSceneController;
 
 public class ControllerClass_Editor_main {
     File dir ;
@@ -115,7 +115,7 @@ public class ControllerClass_Editor_main {
         public void handle(ActionEvent actionEvent) {
             // call the command to get output
             try {
-                org.example.verilog_compiler.EditorScene.CandR.Compile.run();
+                org.verilog_compiler.EditorScene.CandR.Compile.run();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             } catch (InterruptedException e) {

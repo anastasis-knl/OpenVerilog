@@ -1,8 +1,8 @@
-package org.example.verilog_compiler.EditorScene.CandR;
+package org.verilog_compiler.EditorScene.CandR;
 
 import javafx.scene.control.TextArea;
-import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.directoryTreeNode;
-import org.example.verilog_compiler.GlobalSceneController;
+import org.verilog_compiler.EditorScene.Tools.Data_stractures.directoryTreeNode;
+import org.verilog_compiler.GlobalSceneController;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

@@ -1,4 +1,4 @@
-package org.example.verilog_compiler.SelectorScene;
+package org.verilog_compiler.SelectorScene;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,8 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import org.example.verilog_compiler.GlobalSceneController;
-import org.example.verilog_compiler.Start;
+import org.verilog_compiler.GlobalSceneController;
+import org.verilog_compiler.Start;
 
 import java.io.File;
 import java.io.IOException;

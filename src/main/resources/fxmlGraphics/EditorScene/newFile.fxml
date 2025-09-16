@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="68.0" prefWidth="265.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #A8B8A0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.verilog_compiler.EditorScene.Tools.Data_stractures.NewFile">
+<AnchorPane prefHeight="68.0" prefWidth="265.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #A8B8A0;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.verilog_compiler.EditorScene.Tools.Data_stractures.NewFileController">
    <children>
       <Label layoutX="10.0" layoutY="21.0" text="name:">
          <font>

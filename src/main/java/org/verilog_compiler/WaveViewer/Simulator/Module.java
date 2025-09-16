@@ -1,11 +1,11 @@
-package org.example.verilog_compiler.WaveViewer.Simulator;
+package org.verilog_compiler.WaveViewer.Simulator;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-import org.example.verilog_compiler.EditorScene.Tools.Data_stractures.fileExplorerTreeNode;
-import org.example.verilog_compiler.GlobalSceneController;
+import org.verilog_compiler.EditorScene.Tools.Data_stractures.fileExplorerTreeNode;
+import org.verilog_compiler.GlobalSceneController;
 
 import java.io.IOException;
 import java.util.LinkedList;

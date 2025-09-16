@@ -1,4 +1,4 @@
-package org.example.verilog_compiler.EditorScene;
+package org.verilog_compiler.EditorScene;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Tab;

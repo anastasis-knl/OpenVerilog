@@ -18,6 +18,10 @@ make
 sudo make install  
 OpenVerilog
 ```
+
+### Dependensies 
+- Icarus verilog 
+
 ## Images 
 
 #### Wave viewer 
